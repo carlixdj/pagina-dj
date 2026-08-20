@@ -4,17 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CARLIXDJ | Sonido Premium, Iluminación LED & DJ</title>
+    <meta name="description" content="CARLIXDJ en Villeta, Central. Sonido, iluminación y pantallas LED para eventos." />
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
-    <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <!-- Cloudinary Upload Widget -->
     <script src="https://upload-widget.cloudinary.com/global/all.js" type="text/javascript"></script>
-
     <style>
-        /* ===== ESTILOS COMPLETOS (mismos que antes) ===== */
+        /* ===== TODOS LOS ESTILOS (igual que antes, sin cambios) ===== */
         :root {
             --bg-dark: #07070a;
             --bg-card: rgba(18, 18, 26, 0.65);
@@ -22,7 +21,6 @@
             --primary-red: #ff1244;
             --primary-glow: rgba(255, 18, 68, 0.5);
             --accent-cyan: #00f2fe;
-            --accent-gold: #ffb703;
             --text-main: #f8fafc;
             --text-muted: #94a3b8;
             --border-color: rgba(255, 255, 255, 0.08);
@@ -65,8 +63,6 @@
             z-index: -1;
             pointer-events: none;
         }
-
-        /* Preloader */
         #preloader {
             position: fixed;
             top: 0;
@@ -92,10 +88,16 @@
             filter: drop-shadow(0 0 25px var(--primary-glow));
         }
         @keyframes pulseLogo {
-            0%, 100% { transform: scale(1); opacity: 0.9; }
-            50% { transform: scale(1.1); opacity: 1; }
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 0.9;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 1;
+            }
         }
-
         h1,
         h2,
         h3,
@@ -736,7 +738,7 @@
             box-shadow: 0 12px 40px rgba(37, 211, 102, 0.7);
         }
 
-        /* EDITOR ESTILOS */
+        /* EDITOR */
         .edit-toggle-btn {
             background: none;
             border: none;
@@ -753,7 +755,6 @@
         .edit-toggle-btn.active {
             color: var(--primary-red);
         }
-
         .edit-btn-overlay {
             position: absolute;
             top: 10px;
@@ -781,7 +782,6 @@
         .edit-mode .edit-btn-overlay {
             display: flex !important;
         }
-
         .edit-container {
             position: relative;
         }
@@ -939,7 +939,6 @@
             color: #fff;
         }
 
-        /* RESPONSIVE */
         @media (max-width: 1024px) {
             .hero {
                 grid-template-columns: 1fr;
@@ -1007,12 +1006,13 @@
 
     <!-- PRELOADER -->
     <div id="preloader">
-        <img id="preloader-logo" src="https://raw.githubusercontent.com/carlixdj/pagina-dj/main/logo_rojo.jpg" alt="CARLIXDJ Logo" />
+        <!-- El logo se puede editar desde el modal (no depende de GitHub) -->
+        <img id="preloader-logo" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130' height='130' viewBox='0 0 130 130'%3E%3Crect width='130' height='130' fill='%231a1a24'/%3E%3Ctext x='15' y='80' font-family='Syne' font-size='28' fill='%23ff1244' font-weight='800'%3ECARLIXDJ%3C/text%3E%3C/svg%3E" alt="CARLIXDJ" />
         <div style="margin-top: 1.5rem; color: var(--text-muted); font-weight: 600; letter-spacing: 3px;">CARGANDO EXPERIENCIA...</div>
     </div>
 
     <!-- WHATSAPP FLOAT -->
-    <a href="https://wa.me/595981549856?text=Hola%20CARLIXDJ,%20quisiera%20consultar%20disponibilidad%20para%20un%20evento" class="whatsapp-float" target="_blank" aria-label="Contactar por WhatsApp">
+    <a href="https://wa.me/595981549856?text=Hola%20CARLIXDJ,%20quisiera%20consultar%20disponibilidad" class="whatsapp-float" target="_blank" aria-label="WhatsApp">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
@@ -1020,7 +1020,7 @@
     <header>
         <div class="nav-container">
             <a href="#" class="logo-box">
-                <img id="logo-img" src="https://raw.githubusercontent.com/carlixdj/pagina-dj/main/logo_rojo.jpg" alt="CARLIXDJ Logo" />
+                <img id="logo-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' fill='%231a1a24'/%3E%3Ctext x='6' y='30' font-family='Syne' font-size='14' fill='%23ff1244' font-weight='800'%3EC%3C/text%3E%3C/svg%3E" alt="Logo" />
                 <span class="logo-text">CARLIXDJ</span>
             </a>
             <ul class="nav-links">
@@ -1040,18 +1040,14 @@
     <!-- ====== HERO ====== -->
     <section class="hero" id="inicio">
         <div class="hero-content">
-            <div class="hero-badge">
-                <i class="fa-solid fa-bolt"></i> Producción de Eventos Premium
-            </div>
-            <div class="location-badge">
-                <i class="fa-solid fa-location-dot"></i> Villeta · Central · Cobertura Total
-            </div>
+            <div class="hero-badge"><i class="fa-solid fa-bolt"></i> Producción de Eventos Premium</div>
+            <div class="location-badge"><i class="fa-solid fa-location-dot"></i> Villeta · Central · Cobertura Total</div>
             <h1 class="hero-title edit-container">
                 <span class="edit-text" id="hero_title">Tu fiesta al <span class="text-gradient-red">siguiente nivel</span></span>
                 <button class="edit-btn-overlay" data-key="hero" data-type="text" data-text-target="hero_title"></button>
             </h1>
             <p class="hero-description edit-container" id="hero_desc">
-                <span class="edit-text" id="hero_desc_text">Sistemas de sonido Line Array de alta potencia, show de luces robóticas Beam y pantallas LED HD diseñadas para hacer vibrar tus Bodas, 15 Años y Fiestas Privadas.</span>
+                <span class="edit-text" id="hero_desc_text">Sistemas de sonido Line Array, luces robóticas y pantallas LED HD para Bodas, 15 Años y Fiestas Privadas.</span>
                 <button class="edit-btn-overlay" data-key="hero" data-type="text" data-text-target="hero_desc_text"></button>
             </p>
             <div class="hero-cta">
@@ -1066,13 +1062,14 @@
         </div>
         <div class="hero-media-wrapper edit-container">
             <div class="hero-card-featured">
-                <img id="hero_img" src="https://raw.githubusercontent.com/carlixdj/pagina-dj/main/15años.jpg" alt="Fiesta de 15 Años" />
+                <!-- Imagen por defecto (placeholder) -->
+                <img id="hero_img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%231a1a24'/%3E%3Ctext x='180' y='200' font-family='Syne' font-size='28' fill='%23666'%3EImagen Hero%3C/text%3E%3C/svg%3E" alt="Hero" />
             </div>
             <button class="edit-btn-overlay" data-key="hero" data-type="image+text" data-img-target="hero_img" data-text-target="hero_title" data-text-target2="hero_desc_text"></button>
         </div>
     </section>
 
-    <!-- ====== FEATURES ====== -->
+    <!-- ====== FEATURES (textos editables) ====== -->
     <section class="features-bar">
         <div class="features-grid">
             <div class="feature-card edit-container">
@@ -1127,41 +1124,41 @@
             <!-- Paquete 1 -->
             <div class="package-card edit-container">
                 <div class="package-img">
-                    <img id="paquete1_img" src="https://raw.githubusercontent.com/carlixdj/pagina-dj/main/galeria3.jpg" alt="Equipo Básico" />
+                    <img id="paquete1_img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='230' viewBox='0 0 400 230'%3E%3Crect width='400' height='230' fill='%231a1a24'/%3E%3Ctext x='100' y='120' font-family='Syne' font-size='22' fill='%23666'%3EPaquete 1%3C/text%3E%3C/svg%3E" alt="Paquete 1" />
                 </div>
                 <button class="edit-btn-overlay" data-key="paquete1" data-type="image+text" data-img-target="paquete1_img" data-text-target="paquete1_titulo" data-text-target2="paquete1_sub"></button>
                 <div class="package-body">
                     <h3 class="package-title edit-text" id="paquete1_titulo">Equipo Básico</h3>
                     <span class="package-subtitle edit-text" id="paquete1_sub">Ideal para Salones y Reuniones Social</span>
                     <ul class="package-specs">
-                        <li><i class="fa-solid fa-circle-check"></i> 2 Subwoofers de 18" de alta potencia</li>
-                        <li><i class="fa-solid fa-circle-check"></i> 2 Módulos Line Array en torre</li>
-                        <li><i class="fa-solid fa-check"></i> Consola DJ profesional de 8 canales</li>
+                        <li><i class="fa-solid fa-circle-check"></i> 2 Subwoofers de 18"</li>
+                        <li><i class="fa-solid fa-circle-check"></i> 2 Módulos Line Array</li>
+                        <li><i class="fa-solid fa-check"></i> Consola DJ profesional</li>
                         <li><i class="fa-solid fa-check"></i> 2 Luces robóticas Beam</li>
-                        <li><i class="fa-solid fa-check"></i> 2 Luces Par LED ambientales</li>
-                        <li><i class="fa-solid fa-clock"></i> 5 Horas de servicio (Adicional: consultar)</li>
+                        <li><i class="fa-solid fa-check"></i> 2 Luces Par LED</li>
+                        <li><i class="fa-solid fa-clock"></i> 5 Horas de servicio</li>
                     </ul>
                     <a href="https://wa.me/595981549856?text=Hola%20CARLIXDJ,%20me%20interesa%20el%20Equipo%20B%C3%A1sico" class="btn-secondary" style="justify-content: center;" target="_blank">Consultar Paquete</a>
                 </div>
             </div>
 
-            <!-- Paquete 2 -->
+            <!-- Paquete 2 (destacado) -->
             <div class="package-card featured edit-container">
                 <div class="featured-badge">Más Elegido</div>
                 <div class="package-img">
-                    <img id="paquete2_img" src="https://raw.githubusercontent.com/carlixdj/pagina-dj/main/galeria4.jpg" alt="Con Pantalla LED" />
+                    <img id="paquete2_img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='230' viewBox='0 0 400 230'%3E%3Crect width='400' height='230' fill='%231a1a24'/%3E%3Ctext x='100' y='120' font-family='Syne' font-size='22' fill='%23666'%3EPaquete 2%3C/text%3E%3C/svg%3E" alt="Paquete 2" />
                 </div>
                 <button class="edit-btn-overlay" data-key="paquete2" data-type="image+text" data-img-target="paquete2_img" data-text-target="paquete2_titulo" data-text-target2="paquete2_sub"></button>
                 <div class="package-body">
                     <h3 class="package-title edit-text" id="paquete2_titulo">Básico + Pantalla LED</h3>
                     <span class="package-subtitle edit-text" id="paquete2_sub">Impacto Visual Completo para XV Años y Bodas</span>
                     <ul class="package-specs">
-                        <li><i class="fa-solid fa-circle-check"></i> Pantalla LED Integrada / Tótem / Cabina DJ</li>
-                        <li><i class="fa-solid fa-circle-check"></i> Controlador de Video HD y efectos en vivo</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Pantalla LED Integrada</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Controlador de Video HD</li>
                         <li><i class="fa-solid fa-check"></i> 2 Subwoofers 18" + 2 Line Array</li>
-                        <li><i class="fa-solid fa-check"></i> 2 Luces robóticas Beam + 2 Par LED</li>
+                        <li><i class="fa-solid fa-check"></i> 2 Luces robóticas + 2 Par LED</li>
                         <li><i class="fa-solid fa-check"></i> 2 Máquinas de humo vertical</li>
-                        <li><i class="fa-solid fa-clock"></i> 6 Horas de show y DJ en vivo</li>
+                        <li><i class="fa-solid fa-clock"></i> 6 Horas de show</li>
                     </ul>
                     <a href="https://wa.me/595981549856?text=Hola%20CARLIXDJ,%20me%20interesa%20el%20Equipo%20B%C3%A1sico%20con%20Pantalla%20LED" class="btn-primary" style="justify-content: center;" target="_blank">Consultar Este Paquete</a>
                 </div>
@@ -1170,19 +1167,19 @@
             <!-- Paquete 3 -->
             <div class="package-card edit-container">
                 <div class="package-img">
-                    <img id="paquete3_img" src="https://raw.githubusercontent.com/carlixdj/pagina-dj/main/galeria5.jpg" alt="Show Exterior" />
+                    <img id="paquete3_img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='230' viewBox='0 0 400 230'%3E%3Crect width='400' height='230' fill='%231a1a24'/%3E%3Ctext x='100' y='120' font-family='Syne' font-size='22' fill='%23666'%3EPaquete 3%3C/text%3E%3C/svg%3E" alt="Paquete 3" />
                 </div>
                 <button class="edit-btn-overlay" data-key="paquete3" data-type="image+text" data-img-target="paquete3_img" data-text-target="paquete3_titulo" data-text-target2="paquete3_sub"></button>
                 <div class="package-body">
                     <h3 class="package-title edit-text" id="paquete3_titulo">Equipo Exterior / Show</h3>
                     <span class="package-subtitle edit-text" id="paquete3_sub">Potencia Max para Quintas y Grandes Fiestas</span>
                     <ul class="package-specs">
-                        <li><i class="fa-solid fa-circle-check"></i> 8 Subwoofers de 18" de Extrema Potencia</li>
-                        <li><i class="fa-solid fa-circle-check"></i> 6 Módulos Line Array de Gran Alcance</li>
-                        <li><i class="fa-solid fa-check"></i> 4 Robóticas Beam + 8 Par LED + Estrobor</li>
+                        <li><i class="fa-solid fa-circle-check"></i> 8 Subwoofers de 18"</li>
+                        <li><i class="fa-solid fa-circle-check"></i> 6 Módulos Line Array</li>
+                        <li><i class="fa-solid fa-check"></i> 4 Robóticas + 8 Par LED</li>
                         <li><i class="fa-solid fa-check"></i> 2 Máquinas de humo de alto flujo</li>
-                        <li><i class="fa-solid fa-check"></i> Micrófonos inalámbricos profesionales</li>
-                        <li><i class="fa-solid fa-users-gear"></i> Operador DJ + Staff completo de montaje</li>
+                        <li><i class="fa-solid fa-check"></i> Micrófonos inalámbricos</li>
+                        <li><i class="fa-solid fa-users-gear"></i> Staff completo</li>
                     </ul>
                     <a href="https://wa.me/595981549856?text=Hola%20CARLIXDJ,%20quiero%20cotizar%20el%20Equipo%20Exterior" class="btn-secondary" style="justify-content: center;" target="_blank">Consultar Show</a>
                 </div>
@@ -1196,18 +1193,18 @@
             <div class="led-content edit-container">
                 <span class="section-subtitle">Tecnología de Vanguardia</span>
                 <h3 class="edit-text" id="led_titulo">Alquiler de Pantalla LED HD</h3>
-                <p class="edit-text" id="led_desc">Transforma por completo el escenario de tu fiesta con pantallas LED configurables: pantalla gigante de 3x2 metros, tótems laterales iluminados o cabina DJ interactiva.</p>
+                <p class="edit-text" id="led_desc">Pantallas LED configurables de 3x2 metros, tótems laterales o cabina DJ interactiva.</p>
                 <div class="led-grid">
-                    <div class="led-spec-box"><h5>3 x 2 Metros</h5><p>12 Módulos HD de alta definición</p></div>
-                    <div class="led-spec-box"><h5>Múltiples Formatos</h5><p>Pantalla entera, Tótems o Cabina DJ</p></div>
-                    <div class="led-spec-box"><h5>Estructura Truss</h5><p>Soporte perimetral firme y seguro</p></div>
+                    <div class="led-spec-box"><h5>3 x 2 Metros</h5><p>12 Módulos HD</p></div>
+                    <div class="led-spec-box"><h5>Múltiples Formatos</h5><p>Pantalla entera, Tótems o Cabina</p></div>
+                    <div class="led-spec-box"><h5>Estructura Truss</h5><p>Soporte firme y seguro</p></div>
                     <div class="led-spec-box"><h5>Precio bajo consulta</h5><p>Servicio individual o en paquete</p></div>
                 </div>
                 <a href="https://wa.me/595981549856?text=Hola%20CARLIXDJ,%20quiero%20informaci%C3%B3n%20sobre%20la%20Pantalla%20LED" class="btn-primary" target="_blank"><i class="fa-solid fa-tv"></i> Consultar Disponibilidad LED</a>
                 <button class="edit-btn-overlay" data-key="led" data-type="image+text" data-img-target="led_img" data-text-target="led_titulo" data-text-target2="led_desc"></button>
             </div>
             <div class="led-media edit-container">
-                <img id="led_img" src="https://raw.githubusercontent.com/carlixdj/pagina-dj/main/galeria6.jpg" alt="Pantalla LED" />
+                <img id="led_img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%231a1a24'/%3E%3Ctext x='180' y='200' font-family='Syne' font-size='28' fill='%23666'%3EPantalla LED%3C/text%3E%3C/svg%3E" alt="LED" />
                 <button class="edit-btn-overlay" data-key="led" data-type="image+text" data-img-target="led_img" data-text-target="led_titulo" data-text-target2="led_desc"></button>
             </div>
         </div>
@@ -1222,38 +1219,44 @@
                 <button class="edit-btn-overlay" data-key="galeria_title" data-type="text" data-text-target="galeria_title"></button>
             </h2>
             <p class="section-desc edit-container">
-                <span class="edit-text" id="galeria_desc">Echa un vistazo a la calidad de nuestras puestas en escena y montajes en vivo.</span>
+                <span class="edit-text" id="galeria_desc">Echa un vistazo a la calidad de nuestras puestas en escena.</span>
                 <button class="edit-btn-overlay" data-key="galeria_desc" data-type="text" data-text-target="galeria_desc"></button>
             </p>
         </div>
         <div class="gallery-grid">
+            <!-- Galería 1 -->
             <div class="gallery-card edit-container">
-                <img id="galeria1_img" src="https://raw.githubusercontent.com/carlixdj/pagina-dj/main/15años.jpg" alt="15 años" />
+                <img id="galeria1_img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%231a1a24'/%3E%3Ctext x='100' y='160' font-family='Syne' font-size='24' fill='%23666'%3EFoto 1%3C/text%3E%3C/svg%3E" alt="Galería 1" />
                 <div class="gallery-overlay"><span class="edit-text" id="galeria1_text">Fiesta de 15 Años</span> <i class="fa-solid fa-camera text-gradient-red"></i></div>
                 <button class="edit-btn-overlay" data-key="galeria1" data-type="image+text" data-img-target="galeria1_img" data-text-target="galeria1_text"></button>
             </div>
+            <!-- Galería 2 -->
             <div class="gallery-card edit-container">
-                <img id="galeria2_img" src="https://raw.githubusercontent.com/carlixdj/pagina-dj/main/galeria3.jpg" alt="Montaje" />
+                <img id="galeria2_img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%231a1a24'/%3E%3Ctext x='100' y='160' font-family='Syne' font-size='24' fill='%23666'%3EFoto 2%3C/text%3E%3C/svg%3E" alt="Galería 2" />
                 <div class="gallery-overlay"><span class="edit-text" id="galeria2_text">Sonido e Iluminación</span> <i class="fa-solid fa-camera text-gradient-red"></i></div>
                 <button class="edit-btn-overlay" data-key="galeria2" data-type="image+text" data-img-target="galeria2_img" data-text-target="galeria2_text"></button>
             </div>
+            <!-- Galería 3 -->
             <div class="gallery-card edit-container">
-                <img id="galeria3_img" src="https://raw.githubusercontent.com/carlixdj/pagina-dj/main/galeria4.jpg" alt="Cabina DJ" />
+                <img id="galeria3_img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%231a1a24'/%3E%3Ctext x='100' y='160' font-family='Syne' font-size='24' fill='%23666'%3EFoto 3%3C/text%3E%3C/svg%3E" alt="Galería 3" />
                 <div class="gallery-overlay"><span class="edit-text" id="galeria3_text">Estructura LED & DJ</span> <i class="fa-solid fa-camera text-gradient-red"></i></div>
                 <button class="edit-btn-overlay" data-key="galeria3" data-type="image+text" data-img-target="galeria3_img" data-text-target="galeria3_text"></button>
             </div>
+            <!-- Galería 4 -->
             <div class="gallery-card edit-container">
-                <img id="galeria4_img" src="https://raw.githubusercontent.com/carlixdj/pagina-dj/main/galeria5.jpg" alt="Exterior" />
-                <div class="gallery-overlay"><span class="edit-text" id="galeria4_text">Evento Exterior / Quinta</span> <i class="fa-solid fa-camera text-gradient-red"></i></div>
+                <img id="galeria4_img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%231a1a24'/%3E%3Ctext x='100' y='160' font-family='Syne' font-size='24' fill='%23666'%3EFoto 4%3C/text%3E%3C/svg%3E" alt="Galería 4" />
+                <div class="gallery-overlay"><span class="edit-text" id="galeria4_text">Evento Exterior</span> <i class="fa-solid fa-camera text-gradient-red"></i></div>
                 <button class="edit-btn-overlay" data-key="galeria4" data-type="image+text" data-img-target="galeria4_img" data-text-target="galeria4_text"></button>
             </div>
+            <!-- Galería 5 -->
             <div class="gallery-card edit-container">
-                <img id="galeria5_img" src="https://raw.githubusercontent.com/carlixdj/pagina-dj/main/galeria6.jpg" alt="LED HD" />
+                <img id="galeria5_img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%231a1a24'/%3E%3Ctext x='100' y='160' font-family='Syne' font-size='24' fill='%23666'%3EFoto 5%3C/text%3E%3C/svg%3E" alt="Galería 5" />
                 <div class="gallery-overlay"><span class="edit-text" id="galeria5_text">Visuales LED HD</span> <i class="fa-solid fa-camera text-gradient-red"></i></div>
                 <button class="edit-btn-overlay" data-key="galeria5" data-type="image+text" data-img-target="galeria5_img" data-text-target="galeria5_text"></button>
             </div>
+            <!-- Galería 6 -->
             <div class="gallery-card edit-container">
-                <img id="galeria6_img" src="https://raw.githubusercontent.com/carlixdj/pagina-dj/main/galeria7.jpg" alt="Pista de baile" />
+                <img id="galeria6_img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%231a1a24'/%3E%3Ctext x='100' y='160' font-family='Syne' font-size='24' fill='%23666'%3EFoto 6%3C/text%3E%3C/svg%3E" alt="Galería 6" />
                 <div class="gallery-overlay"><span class="edit-text" id="galeria6_text">Fiesta en Vivo</span> <i class="fa-solid fa-camera text-gradient-red"></i></div>
                 <button class="edit-btn-overlay" data-key="galeria6" data-type="image+text" data-img-target="galeria6_img" data-text-target="galeria6_text"></button>
             </div>
@@ -1269,7 +1272,7 @@
                 <button class="edit-btn-overlay" data-key="upgrades_title" data-type="text" data-text-target="upgrades_title"></button>
             </h2>
             <p class="section-desc edit-container">
-                <span class="edit-text" id="upgrades_desc">Añade estos complementos para darle un toque aún más deslumbrante a tu celebración.</span>
+                <span class="edit-text" id="upgrades_desc">Añade estos complementos para darle un toque aún más deslumbrante.</span>
                 <button class="edit-btn-overlay" data-key="upgrades_desc" data-type="text" data-text-target="upgrades_desc"></button>
             </p>
         </div>
@@ -1277,21 +1280,21 @@
             <div class="upgrade-card edit-container">
                 <div class="upgrade-icon"><i class="fa-regular fa-square"></i></div>
                 <h3 class="upgrade-title edit-text" id="upgrade1_titulo">Pista LED 4x4</h3>
-                <p class="upgrade-desc edit-text" id="upgrade1_desc">Pista de baile completamente iluminada con tecnología LED, creando un ambiente futurista inolvidable.</p>
+                <p class="upgrade-desc edit-text" id="upgrade1_desc">Pista de baile iluminada con LED, ambiente futurista inolvidable.</p>
                 <a href="https://wa.me/595981549856?text=Hola%20CARLIXDJ,%20quiero%20consultar%20la%20Pista%20LED%204x4" class="btn-secondary" target="_blank" style="width:100%; justify-content:center;">Consultar Pista</a>
                 <button class="edit-btn-overlay" data-key="upgrade1" data-type="text" data-text-target="upgrade1_titulo" data-text-target2="upgrade1_desc"></button>
             </div>
             <div class="upgrade-card edit-container">
                 <div class="upgrade-icon"><i class="fa-regular fa-gem"></i></div>
                 <h3 class="upgrade-title edit-text" id="upgrade2_titulo">Pista Paris</h3>
-                <p class="upgrade-desc edit-text" id="upgrade2_desc">Diseño elegante con destellos estelares, perfecto para el vals de bodas y quinceañeras sofisticadas.</p>
+                <p class="upgrade-desc edit-text" id="upgrade2_desc">Diseño elegante con destellos estelares, perfecto para bodas y quinceañeras.</p>
                 <a href="https://wa.me/595981549856?text=Hola%20CARLIXDJ,%20quiero%20consultar%20la%20Pista%20Paris" class="btn-secondary" target="_blank" style="width:100%; justify-content:center;">Consultar Pista</a>
                 <button class="edit-btn-overlay" data-key="upgrade2" data-type="text" data-text-target="upgrade2_titulo" data-text-target2="upgrade2_desc"></button>
             </div>
             <div class="upgrade-card edit-container">
                 <div class="upgrade-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
                 <h3 class="upgrade-title edit-text" id="upgrade3_titulo">Chispa Fría</h3>
-                <p class="upgrade-desc edit-text" id="upgrade3_desc">Efectos pirotécnicos de chispa fría totalmente seguros para interiores. Ideales para la entrada y el brindis.</p>
+                <p class="upgrade-desc edit-text" id="upgrade3_desc">Efectos pirotécnicos de chispa fría seguros para interiores.</p>
                 <a href="https://wa.me/595981549856?text=Hola%20CARLIXDJ,%20quiero%20consultar%20Chispa%20Fr%C3%ADa" class="btn-primary" target="_blank" style="width:100%; justify-content:center;">Consultar Efecto</a>
                 <button class="edit-btn-overlay" data-key="upgrade3" data-type="text" data-text-target="upgrade3_titulo" data-text-target2="upgrade3_desc"></button>
             </div>
@@ -1302,15 +1305,15 @@
     <section class="contact-section" id="contacto">
         <div class="contact-card edit-container">
             <h2 class="edit-text" id="contacto_titulo">¿Listo para hacer vibrar tu fecha?</h2>
-            <p class="edit-text" id="contacto_desc">Reserva con tiempo mediante seña y asegura el mejor equipamiento audiovisual para tu evento.</p>
+            <p class="edit-text" id="contacto_desc">Reserva con tiempo mediante seña y asegura el mejor equipamiento audiovisual.</p>
             <div class="contact-actions">
                 <a href="https://wa.me/595981549856?text=Hola%20CARLIXDJ,%20quisiera%20reservar%20mi%20fecha" class="btn-primary" target="_blank" style="font-size:1.15rem; padding:1rem 2.8rem;"><i class="fa-brands fa-whatsapp"></i> Hablar al 0981 549 856</a>
                 <a href="tel:0981549856" class="btn-secondary" style="font-size:1.15rem; padding:1rem 2.8rem;"><i class="fa-solid fa-phone"></i> Llama al 0981 549 856</a>
             </div>
             <div class="social-links">
-                <a href="#" class="social-btn" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="#" class="social-btn" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-                <a href="https://wa.me/595981549856" class="social-btn" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="#" class="social-btn"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" class="social-btn"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://wa.me/595981549856" class="social-btn"><i class="fa-brands fa-whatsapp"></i></a>
             </div>
             <button class="edit-btn-overlay" data-key="contacto" data-type="text" data-text-target="contacto_titulo" data-text-target2="contacto_desc"></button>
         </div>
@@ -1321,11 +1324,11 @@
         <div class="visitor-counter">
             <i class="fa-solid fa-eye"></i>
             <span>Visitas: <strong id="visit-count">Cargando...</strong></span>
-            <button class="edit-toggle-btn" id="editToggleBtn" aria-label="Editar" title="Editar página (contraseña: 1234)">
+            <button class="edit-toggle-btn" id="editToggleBtn" aria-label="Editar" title="Editar (contraseña: 1234)">
                 <i class="fa-solid fa-pen"></i>
             </button>
         </div>
-        <p class="edit-text" id="footer_copyright">&copy; 2026 CARLIXDJ / GS Producciones & Eventos. Todos los derechos reservados.</p>
+        <p class="edit-text" id="footer_copyright">&copy; 2026 CARLIXDJ / GS Producciones. Todos los derechos reservados.</p>
         <p style="margin-top:0.5rem; font-size:0.85rem;" class="edit-text" id="footer_ubicacion">Villeta, Central · Paraguay</p>
         <button class="edit-btn-overlay" data-key="footer" data-type="text" data-text-target="footer_copyright" data-text-target2="footer_ubicacion" style="position:relative; display:none; margin:0 auto;"></button>
     </footer>
@@ -1359,28 +1362,28 @@
 
     <!-- ===== SCRIPTS ===== -->
     <script>
-        // =============================================================
-        // 1. CONFIGURACIÓN (cambia aquí tus datos)
-        // =============================================================
+        // ============================================================
+        // CONFIGURACIÓN (¡cambia aquí tus datos!)
+        // ============================================================
         const CONFIG = {
-            CLOUD_NAME: 'fu4efzoy',
-            UPLOAD_PRESET: 'carlixdj_preset', // pon el nombre que creaste
-            FIREBASE_URL: 'https://carlixdj-da9b5-default-rtdb.firebaseio.com/', // tu URL de Firebase
+            CLOUD_NAME: 'fu4efzoy', // ← tu Cloud Name
+            UPLOAD_PRESET: 'carlixdj_preset', // ← tu Upload Preset sin firma
+            FIREBASE_URL: 'https://carlixdj-da9b5-default-rtdb.firebaseio.com/', // ← tu URL de Firebase
             PASSWORD: '1234'
         };
 
-        // =============================================================
-        // 2. PRELOADER
-        // =============================================================
+        // ============================================================
+        // 1. PRELOADER
+        // ============================================================
         window.addEventListener('load', function() {
             setTimeout(function() {
                 document.getElementById('preloader').classList.add('hidden');
             }, 1200);
         });
 
-        // =============================================================
-        // 3. CONTADOR DE VISITAS (Firebase)
-        // =============================================================
+        // ============================================================
+        // 2. CONTADOR DE VISITAS (Firebase)
+        // ============================================================
         function loadVisitCounter() {
             const url = CONFIG.FIREBASE_URL + 'visitas.json';
             const countElement = document.getElementById('visit-count');
@@ -1397,9 +1400,9 @@
         }
         document.addEventListener('DOMContentLoaded', loadVisitCounter);
 
-        // =============================================================
-        // 4. PARTÍCULAS (fondo)
-        // =============================================================
+        // ============================================================
+        // 3. PARTÍCULAS (fondo)
+        // ============================================================
         (function() {
             const canvas = document.getElementById('particles-canvas');
             const ctx = canvas.getContext('2d');
@@ -1462,9 +1465,9 @@
             animate();
         })();
 
-        // =============================================================
-        // 5. SISTEMA DE EDICIÓN CON FIREBASE + CLOUDINARY
-        // =============================================================
+        // ============================================================
+        // 4. SISTEMA DE EDICIÓN CON FIREBASE + CLOUDINARY
+        // ============================================================
         (function() {
             // Elementos DOM
             const editToggleBtn = document.getElementById('editToggleBtn');
@@ -1488,11 +1491,10 @@
             let currentTextTarget2 = null;
             let isEditMode = false;
 
-            // Referencia a Firebase
             const dbUrl = CONFIG.FIREBASE_URL + 'contenido.json';
 
-            // ----- Cargar datos desde Firebase -----
-            function loadContentFromFirebase() {
+            // ----- Cargar desde Firebase -----
+            function loadContent() {
                 return fetch(dbUrl)
                     .then(res => res.json())
                     .then(data => data || {})
@@ -1500,7 +1502,7 @@
             }
 
             // ----- Guardar en Firebase -----
-            function saveContentToFirebase(data) {
+            function saveContent(data) {
                 return fetch(dbUrl, {
                         method: 'PUT',
                         headers: { 'Content-Type': 'application/json' },
@@ -1514,13 +1516,10 @@
                 for (const key in content) {
                     const entry = content[key];
                     if (!entry) continue;
-
-                    // Imagen
                     if (entry.img && entry.imgTarget) {
                         const imgEl = document.getElementById(entry.imgTarget);
                         if (imgEl) imgEl.src = entry.img;
                     }
-                    // Texto 1
                     if (entry.text1 && entry.textTarget1) {
                         const el = document.getElementById(entry.textTarget1);
                         if (el) {
@@ -1531,7 +1530,6 @@
                             }
                         }
                     }
-                    // Texto 2
                     if (entry.text2 && entry.textTarget2) {
                         const el2 = document.getElementById(entry.textTarget2);
                         if (el2) {
@@ -1546,20 +1544,15 @@
             }
 
             // ----- Cargar inicial -----
-            loadContentFromFirebase().then(content => {
-                applyContent(content);
-            });
+            loadContent().then(content => applyContent(content));
 
-            // ----- Guardar cambios desde el modal -----
+            // ----- Guardar cambios desde modal -----
             function saveCurrentEdit() {
                 if (!currentEditKey) return;
-
-                // Obtener valores del modal
                 const imgValue = modalImgUrl.value.trim();
                 const text1 = modalText1.value.trim();
                 const text2 = modalText2.value.trim();
 
-                // Construir objeto a guardar
                 const entry = {};
                 if (imgValue && currentImgTarget) {
                     entry.img = imgValue;
@@ -1574,18 +1567,16 @@
                     entry.textTarget2 = currentTextTarget2;
                 }
 
-                // Guardar en Firebase
-                loadContentFromFirebase().then(allContent => {
+                loadContent().then(allContent => {
                     allContent[currentEditKey] = entry;
-                    return saveContentToFirebase(allContent);
+                    return saveContent(allContent);
                 }).then(() => {
-                    // Aplicar localmente
                     const singleObj = {};
                     singleObj[currentEditKey] = entry;
                     applyContent(singleObj);
                     closeModal();
                 }).catch(err => {
-                    alert('Error al guardar en Firebase: ' + err.message);
+                    alert('Error al guardar: ' + err.message);
                 });
             }
 
@@ -1597,11 +1588,9 @@
                 currentTextTarget1 = textTarget1 || null;
                 currentTextTarget2 = textTarget2 || null;
 
-                // Cargar datos actuales desde Firebase
-                loadContentFromFirebase().then(allContent => {
+                loadContent().then(allContent => {
                     const entry = allContent[key] || {};
 
-                    // Obtener valores actuales de la página (por si no hay en Firebase)
                     let currentImg = '';
                     if (imgTarget) {
                         const imgEl = document.getElementById(imgTarget);
@@ -1618,15 +1607,13 @@
                         if (el) currentText2 = el.innerText || el.value || '';
                     }
 
-                    // Usar datos de Firebase si existen
                     if (entry.img && entry.imgTarget === imgTarget) currentImg = entry.img;
                     if (entry.text1 && entry.textTarget1 === textTarget1) currentText1 = entry.text1;
                     if (entry.text2 && entry.textTarget2 === textTarget2) currentText2 = entry.text2;
 
-                    // Mostrar/ocultar sección imagen
                     if (type === 'image' || type === 'image+text') {
                         modalImageSection.style.display = 'block';
-                        modalImgPreview.src = currentImg || 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect width=%22200%22 height=%22200%22 fill=%22%231a1a24%22/%3E%3Ctext x=%2250%22 y=%22110%22 font-family=%22Arial%22 font-size=%2220%22 fill=%22%23666%22%3ESin imagen%3C/text%3E%3C/svg%3E';
+                        modalImgPreview.src = currentImg || 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect width=%22200%22 height=%22200%22 fill=%22%231a1a24%22/%3E%3Ctext x=%2250%22 y=%22110%22 font-family=%22Syne%22 font-size=%2220%22 fill=%22%23666%22%3ESin imagen%3C/text%3E%3C/svg%3E';
                         modalImgUrl.value = currentImg;
                         modalFileInput.value = '';
                     } else {
@@ -1635,13 +1622,11 @@
 
                     modalText1.value = currentText1;
                     modalText2.value = currentText2;
-
                     modalTitle.innerText = 'Editar: ' + key;
                     modalOverlay.classList.add('active');
                 });
             }
 
-            // ----- Cerrar modal -----
             function closeModal() {
                 modalOverlay.classList.remove('active');
                 currentEditKey = null;
@@ -1652,10 +1637,10 @@
                 modalFileInput.value = '';
             }
 
-            // ----- Botón de Cloudinary (subir imagen) -----
+            // ----- Botón Cloudinary -----
             uploadCloudinaryBtn.addEventListener('click', function() {
                 if (!CONFIG.CLOUD_NAME || !CONFIG.UPLOAD_PRESET) {
-                    alert('Falta configurar CLOUD_NAME o UPLOAD_PRESET en el código.');
+                    alert('Falta configurar CLOUD_NAME o UPLOAD_PRESET.');
                     return;
                 }
                 const widget = cloudinary.createUploadWidget({
@@ -1665,7 +1650,6 @@
                     cropping: false
                 }, function(error, result) {
                     if (error) {
-                        console.error('Error al subir:', error);
                         alert('Error al subir imagen.');
                         return;
                     }
@@ -1678,29 +1662,29 @@
                 widget.open();
             });
 
-            // --- Activar/desactivar modo edición con contraseña ---
+            // ---- Toggle edición con contraseña ----
             editToggleBtn.addEventListener('click', function() {
                 if (isEditMode) {
                     document.body.classList.remove('edit-mode');
                     editToggleBtn.classList.remove('active');
                     isEditMode = false;
                     editToggleBtn.innerHTML = '<i class="fa-solid fa-pen"></i>';
-                    editToggleBtn.title = 'Editar página (contraseña: 1234)';
+                    editToggleBtn.title = 'Editar (contraseña: 1234)';
                 } else {
-                    const pass = prompt('Introduce la contraseña para editar:');
+                    const pass = prompt('Introduce la contraseña:');
                     if (pass === CONFIG.PASSWORD) {
                         document.body.classList.add('edit-mode');
                         editToggleBtn.classList.add('active');
                         isEditMode = true;
                         editToggleBtn.innerHTML = '<i class="fa-solid fa-check"></i>';
-                        editToggleBtn.title = 'Desactivar modo edición';
+                        editToggleBtn.title = 'Desactivar edición';
                     } else if (pass !== null) {
                         alert('Contraseña incorrecta.');
                     }
                 }
             });
 
-            // --- Delegación de eventos para lápices ---
+            // ---- Eventos de lápices ----
             document.addEventListener('click', function(e) {
                 const btn = e.target.closest('.edit-btn-overlay');
                 if (!btn) return;
@@ -1717,16 +1701,15 @@
                 openModal(key, type, imgTarget, textTarget, textTarget2);
             });
 
-            // --- Botones del modal ---
+            // ---- Botones modal ----
             modalCloseBtn.addEventListener('click', closeModal);
             modalCancelBtn.addEventListener('click', closeModal);
             modalSaveBtn.addEventListener('click', saveCurrentEdit);
-
             modalOverlay.addEventListener('click', function(e) {
                 if (e.target === this) closeModal();
             });
 
-            // (Opcional) subir archivo local (no lo usamos, pero lo dejamos por si acaso)
+            // Subida local (solo por si acaso)
             modalFileInput.addEventListener('change', function(e) {
                 const file = e.target.files[0];
                 if (!file) return;
@@ -1739,9 +1722,8 @@
                 reader.readAsDataURL(file);
             });
 
-            // Previsualizar URL
             modalImgUrl.addEventListener('input', function() {
-                modalImgPreview.src = this.value || 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect width=%22200%22 height=%22200%22 fill=%22%231a1a24%22/%3E%3Ctext x=%2250%22 y=%22110%22 font-family=%22Arial%22 font-size=%2220%22 fill=%22%23666%22%3ESin imagen%3C/text%3E%3C/svg%3E';
+                modalImgPreview.src = this.value || 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect width=%22200%22 height=%22200%22 fill=%22%231a1a24%22/%3E%3Ctext x=%2250%22 y=%22110%22 font-family=%22Syne%22 font-size=%2220%22 fill=%22%23666%22%3ESin imagen%3C/text%3E%3C/svg%3E';
             });
 
         })();
