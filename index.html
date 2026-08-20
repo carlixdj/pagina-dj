@@ -734,21 +734,51 @@
         });
 
         // =============================================================
-        // 2. CONTADOR DE VISITAS (Firebase)
+        // 2. CONTADOR DE VISITAS (Firebase) - AHORA SE INCREMENTA
         // =============================================================
-        function loadVisitCounter() {
+        function updateVisitCounter() {
             const url = CONFIG.FIREBASE_URL + 'visitas.json';
             const countElement = document.getElementById('visit-count');
+
+            // Verificar si ya se contó en esta sesión (para evitar múltiples incrementos)
+            if (sessionStorage.getItem('visitCounted')) {
+                // Solo mostrar el valor actual sin incrementar
+                fetch(url)
+                    .then(res => res.json())
+                    .then(data => {
+                        if (countElement) countElement.innerText = data ? data.toLocaleString() : '1,240';
+                    })
+                    .catch(() => {
+                        if (countElement) countElement.innerText = '1,250+';
+                    });
+                return;
+            }
+
+            // Obtener valor actual, incrementar y guardar
             fetch(url)
                 .then(res => res.json())
                 .then(data => {
-                    if (countElement) countElement.innerText = data ? data.toLocaleString() : '1,240';
+                    const current = data || 0;
+                    const newCount = current + 1;
+                    // Guardar nuevo valor
+                    return fetch(url, {
+                        method: 'PUT',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(newCount)
+                    }).then(() => newCount);
+                })
+                .then(newCount => {
+                    if (countElement) countElement.innerText = newCount.toLocaleString();
+                    sessionStorage.setItem('visitCounted', 'true');
                 })
                 .catch(() => {
+                    // Fallback: mostrar un valor aproximado
                     if (countElement) countElement.innerText = '1,250+';
                 });
         }
-        document.addEventListener('DOMContentLoaded', loadVisitCounter);
+
+        // Ejecutar al cargar la página
+        document.addEventListener('DOMContentLoaded', updateVisitCounter);
 
         // =============================================================
         // 3. PARTÍCULAS (fondo)
@@ -833,7 +863,7 @@
             let currentImgTarget = null;
             let currentTextTarget1 = null;
             let currentTextTarget2 = null;
-            let currentSpecsTarget = null; // ID del <ul> de características
+            let currentSpecsTarget = null;
             let isEditMode = false;
 
             const dbUrl = CONFIG.FIREBASE_URL + 'contenido.json';
@@ -886,12 +916,10 @@
                     if (entry.specs && entry.specsTarget) {
                         const ul = document.getElementById(entry.specsTarget);
                         if (ul) {
-                            // Limpiar y reconstruir
                             ul.innerHTML = '';
                             const items = entry.specs.split('\n').filter(s => s.trim() !== '');
                             items.forEach(text => {
                                 const li = document.createElement('li');
-                                // Añadir icono según el texto (inteligente)
                                 let iconClass = 'fa-solid fa-check';
                                 if (text.toLowerCase().includes('subwoofer') || text.toLowerCase().includes('torre') || text.toLowerCase().includes('array')) {
                                     iconClass = 'fa-solid fa-circle-check';
@@ -977,13 +1005,12 @@
                         }
                     }
 
-                    // Si hay datos en Firebase, usarlos
                     if (entry.img && entry.imgTarget === imgTarget) currentImg = entry.img;
                     if (entry.text1 && entry.textTarget1 === textTarget1) currentText1 = entry.text1;
                     if (entry.text2 && entry.textTarget2 === textTarget2) currentText2 = entry.text2;
                     if (entry.specs && entry.specsTarget === specsTarget) currentSpecs = entry.specs;
 
-                    // Mostrar/ocultar sección de imagen (siempre visible)
+                    // Mostrar sección de imagen siempre
                     modalImageSection.style.display = 'block';
                     modalImgPreview.src = currentImg || 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect width=%22200%22 height=%22200%22 fill=%22%231a1a24%22/%3E%3Ctext x=%2250%22 y=%22110%22 font-family=%22Arial%22 font-size=%2220%22 fill=%22%23666%22%3ESin imagen%3C/text%3E%3C/svg%3E';
                     modalImgUrl.value = currentImg;
