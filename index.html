@@ -3,31 +3,16 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CARLIXDJ | Sonido Premium, Iluminación LED & DJ</title>
-    <meta name="description" content="CARLIXDJ en Villeta, Central. Sonido, iluminación y pantallas LED para eventos." />
-    <!-- Google Fonts -->
+    <title>CARLIXDJ | Editable</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <!-- Cloudinary Upload Widget -->
     <script src="https://upload-widget.cloudinary.com/global/all.js" type="text/javascript"></script>
+
     <style>
-        /* ===== TODOS LOS ESTILOS (igual que antes, sin cambios) ===== */
-        :root {
-            --bg-dark: #07070a;
-            --bg-card: rgba(18, 18, 26, 0.65);
-            --bg-card-hover: rgba(28, 28, 42, 0.85);
-            --primary-red: #ff1244;
-            --primary-glow: rgba(255, 18, 68, 0.5);
-            --accent-cyan: #00f2fe;
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --border-color: rgba(255, 255, 255, 0.08);
-            --glass-bg: rgba(10, 10, 15, 0.82);
-            --font-heading: 'Syne', sans-serif;
-            --font-body: 'Outfit', sans-serif;
-        }
+        /* ===== RESET Y ESTILOS BASE ===== */
         * {
             margin: 0;
             padding: 0;
@@ -35,163 +20,39 @@
             scroll-behavior: smooth;
         }
         body {
-            background-color: var(--bg-dark);
-            color: var(--text-main);
-            font-family: var(--font-body);
+            background: #07070a;
+            color: #f8fafc;
+            font-family: 'Outfit', sans-serif;
             overflow-x: hidden;
-            line-height: 1.6;
         }
-        .ambient-glow {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            pointer-events: none;
-            z-index: -2;
-            background:
-                radial-gradient(circle at 15% 20%, rgba(255, 18, 68, 0.12) 0%, transparent 45%),
-                radial-gradient(circle at 85% 80%, rgba(0, 242, 254, 0.08) 0%, transparent 45%),
-                radial-gradient(circle at 50% 50%, rgba(120, 0, 255, 0.05) 0%, transparent 60%);
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 2rem;
         }
-        #particles-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            pointer-events: none;
-        }
-        #preloader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--bg-dark);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
-            transition: opacity 0.8s ease, visibility 0.8s ease;
-        }
-        #preloader.hidden {
-            opacity: 0;
-            visibility: hidden;
-        }
-        #preloader img {
-            width: 130px;
-            height: auto;
-            animation: pulseLogo 1.6s ease-in-out infinite;
-            filter: drop-shadow(0 0 25px var(--primary-glow));
-        }
-        @keyframes pulseLogo {
-            0%,
-            100% {
-                transform: scale(1);
-                opacity: 0.9;
-            }
-            50% {
-                transform: scale(1.1);
-                opacity: 1;
-            }
-        }
+
+        /* ===== TIPOGRAFÍA ===== */
         h1,
         h2,
         h3,
-        h4,
-        .font-heading {
-            font-family: var(--font-heading);
+        h4 {
+            font-family: 'Syne', sans-serif;
             letter-spacing: -0.02em;
         }
         .text-gradient-red {
-            background: linear-gradient(135deg, #ffffff 20%, var(--primary-red) 100%);
+            background: linear-gradient(135deg, #fff 20%, #ff1244 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
         .text-gradient-cyan {
-            background: linear-gradient(135deg, #ffffff 20%, var(--accent-cyan) 100%);
+            background: linear-gradient(135deg, #fff 20%, #00f2fe 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        /* HEADER */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            background: var(--glass-bg);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border-color);
-        }
-        .nav-container {
-            max-width: 1300px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .logo-box {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            text-decoration: none;
-        }
-        .logo-box img {
-            height: 48px;
-            width: auto;
-            border-radius: 8px;
-            box-shadow: 0 0 15px var(--primary-glow);
-        }
-        .logo-text {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: #fff;
-            letter-spacing: 1px;
-            font-family: var(--font-heading);
-        }
-        .nav-links {
-            display: flex;
-            gap: 2.2rem;
-            list-style: none;
-            align-items: center;
-        }
-        .nav-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: all 0.3s ease;
-        }
-        .nav-links a:hover {
-            color: #fff;
-            text-shadow: 0 0 12px rgba(255, 255, 255, 0.8);
-        }
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            gap: 6px;
-            cursor: pointer;
-            background: none;
-            border: none;
-        }
-        .hamburger span {
-            display: block;
-            width: 28px;
-            height: 2px;
-            background: #fff;
-            transition: all 0.3s ease;
-        }
-
-        /* BUTTONS */
+        /* ===== BOTONES ===== */
         .btn-primary {
-            background: linear-gradient(135deg, var(--primary-red) 0%, #b80028 100%);
+            background: linear-gradient(135deg, #ff1244, #b80028);
             color: #fff !important;
             padding: 0.8rem 1.8rem;
             border-radius: 50px;
@@ -200,13 +61,13 @@
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            box-shadow: 0 6px 25px var(--primary-glow);
-            transition: all 0.3s ease;
             border: 1px solid rgba(255, 255, 255, 0.2);
             cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 6px 25px rgba(255, 18, 68, 0.5);
         }
         .btn-primary:hover {
-            transform: translateY(-3px) scale(1.02);
+            transform: translateY(-3px);
             box-shadow: 0 10px 35px rgba(255, 18, 68, 0.7);
         }
         .btn-secondary {
@@ -219,21 +80,98 @@
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            border: 1px solid var(--border-color);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
+            transition: all 0.3s;
         }
         .btn-secondary:hover {
             background: rgba(255, 255, 255, 0.15);
-            border-color: rgba(255, 255, 255, 0.3);
             transform: translateY(-3px);
         }
 
-        /* HERO */
-        .hero {
-            padding: 170px 2rem 90px;
+        /* ===== HEADER ===== */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(10, 10, 15, 0.82);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
             max-width: 1300px;
             margin: 0 auto;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            text-decoration: none;
+            color: #fff;
+            font-weight: 800;
+            font-size: 1.5rem;
+            font-family: 'Syne', sans-serif;
+        }
+        .logo img {
+            height: 48px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(255, 18, 68, 0.5);
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+        .nav-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+        .nav-links a:hover {
+            color: #fff;
+        }
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+        }
+
+        /* ===== SECCIONES COMUNES ===== */
+        .section-header {
+            text-align: center;
+            max-width: 750px;
+            margin: 0 auto 4.5rem;
+        }
+        .section-subtitle {
+            color: #ff1244;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.85rem;
+            display: block;
+            margin-bottom: 0.8rem;
+        }
+        .section-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+        .section-desc {
+            color: #94a3b8;
+            font-size: 1.1rem;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            padding: 170px 0 90px;
             display: grid;
             grid-template-columns: 1.1fr 0.9fr;
             gap: 3.5rem;
@@ -246,7 +184,7 @@
             gap: 10px;
             background: rgba(255, 18, 68, 0.12);
             border: 1px solid rgba(255, 18, 68, 0.35);
-            color: var(--primary-red);
+            color: #ff1244;
             padding: 8px 18px;
             border-radius: 30px;
             font-size: 0.85rem;
@@ -261,7 +199,7 @@
             gap: 8px;
             background: rgba(0, 242, 254, 0.08);
             border: 1px solid rgba(0, 242, 254, 0.25);
-            color: var(--accent-cyan);
+            color: #00f2fe;
             padding: 8px 18px;
             border-radius: 30px;
             font-size: 0.88rem;
@@ -275,9 +213,9 @@
             font-weight: 800;
             margin-bottom: 1.5rem;
         }
-        .hero-description {
+        .hero-desc {
             font-size: 1.18rem;
-            color: var(--text-muted);
+            color: #94a3b8;
             margin-bottom: 2.5rem;
             max-width: 560px;
         }
@@ -291,59 +229,69 @@
             gap: 3rem;
             margin-top: 3.5rem;
             padding-top: 2rem;
-            border-top: 1px solid var(--border-color);
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
         }
-        .stat-item h3 {
+        .hero-stats h3 {
             font-size: 2.2rem;
             color: #fff;
             font-weight: 800;
         }
-        .stat-item p {
-            color: var(--text-muted);
+        .hero-stats p {
+            color: #94a3b8;
             font-size: 0.88rem;
         }
-        .hero-media-wrapper {
-            position: relative;
-        }
-        .hero-card-featured {
-            position: relative;
+        .hero-img-container {
             border-radius: 28px;
             overflow: hidden;
             border: 1px solid rgba(255, 255, 255, 0.15);
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), 0 0 40px rgba(255, 18, 68, 0.2);
-            transition: transform 0.5s ease, border-color 0.5s ease;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9);
         }
-        .hero-card-featured:hover {
-            transform: scale(1.02) rotate(-0.5deg);
-            border-color: var(--primary-red);
-        }
-        .hero-card-featured img {
+        .hero-img-container img {
             width: 100%;
             height: 100%;
             max-height: 520px;
             object-fit: cover;
             display: block;
         }
+        @media (max-width: 1024px) {
+            .hero {
+                grid-template-columns: 1fr;
+                padding-top: 150px;
+                text-align: center;
+            }
+            .hero-desc {
+                margin: 0 auto 2.5rem;
+            }
+            .hero-cta,
+            .hero-stats {
+                justify-content: center;
+            }
+        }
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.8rem;
+            }
+            .section-title {
+                font-size: 2.3rem;
+            }
+        }
 
-        /* FEATURES */
+        /* ===== FEATURES ===== */
         .features-bar {
             background: rgba(15, 15, 22, 0.7);
-            border-top: 1px solid var(--border-color);
-            border-bottom: 1px solid var(--border-color);
-            padding: 3.5rem 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 3.5rem 0;
             margin-bottom: 7rem;
             backdrop-filter: blur(10px);
         }
         .features-grid {
-            max-width: 1300px;
-            margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 2.5rem;
         }
         .feature-card {
             display: flex;
-            align-items: flex-start;
             gap: 1.2rem;
         }
         .feature-icon {
@@ -355,7 +303,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--primary-red);
+            color: #ff1244;
             font-size: 1.3rem;
             flex-shrink: 0;
         }
@@ -365,63 +313,30 @@
             margin-bottom: 0.3rem;
         }
         .feature-text p {
-            color: var(--text-muted);
+            color: #94a3b8;
             font-size: 0.9rem;
         }
 
-        /* SECTION COMMONS */
-        .section-header {
-            text-align: center;
-            max-width: 750px;
-            margin: 0 auto 4.5rem;
-        }
-        .section-subtitle {
-            color: var(--primary-red);
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 0.85rem;
-            margin-bottom: 0.8rem;
-            display: block;
-        }
-        .section-title {
-            font-size: 3rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-        }
-        .section-desc {
-            color: var(--text-muted);
-            font-size: 1.1rem;
-        }
-
-        /* PACKAGES */
-        .packages-section {
-            max-width: 1300px;
-            margin: 0 auto 8rem;
-            padding: 0 2rem;
-        }
+        /* ===== PAQUETES ===== */
         .packages-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
             gap: 2.5rem;
         }
         .package-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
+            background: rgba(18, 18, 26, 0.65);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 28px;
             overflow: hidden;
-            transition: all 0.4s ease;
-            display: flex;
-            flex-direction: column;
-            position: relative;
+            transition: 0.4s;
         }
         .package-card:hover {
             transform: translateY(-12px);
             border-color: rgba(255, 18, 68, 0.5);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(255, 18, 68, 0.15);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8);
         }
         .package-card.featured {
-            border-color: var(--primary-red);
+            border-color: #ff1244;
             background: rgba(24, 20, 32, 0.9);
             box-shadow: 0 15px 40px rgba(255, 18, 68, 0.25);
         }
@@ -429,37 +344,33 @@
             position: absolute;
             top: 20px;
             right: 20px;
-            background: var(--primary-red);
+            background: #ff1244;
             color: #fff;
             padding: 6px 16px;
             border-radius: 30px;
             font-size: 0.78rem;
             font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 1px;
             z-index: 10;
-            box-shadow: 0 4px 15px var(--primary-glow);
+        }
+        .package-card {
+            position: relative;
         }
         .package-img {
             height: 230px;
-            width: 100%;
             overflow: hidden;
-            position: relative;
         }
         .package-img img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.6s ease;
+            transition: 0.6s;
         }
         .package-card:hover .package-img img {
             transform: scale(1.08);
         }
         .package-body {
             padding: 2.2rem;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
         }
         .package-title {
             font-size: 1.7rem;
@@ -467,7 +378,7 @@
             margin-bottom: 0.4rem;
         }
         .package-subtitle {
-            color: var(--accent-cyan);
+            color: #00f2fe;
             font-size: 0.88rem;
             font-weight: 600;
             margin-bottom: 1.5rem;
@@ -476,7 +387,6 @@
         .package-specs {
             list-style: none;
             margin-bottom: 2.2rem;
-            flex-grow: 1;
         }
         .package-specs li {
             color: #cbd5e1;
@@ -487,18 +397,12 @@
             gap: 12px;
         }
         .package-specs li i {
-            color: var(--primary-red);
-            font-size: 0.9rem;
+            color: #ff1244;
         }
 
-        /* LED */
-        .led-spotlight {
-            max-width: 1300px;
-            margin: 0 auto 8rem;
-            padding: 0 2rem;
-        }
+        /* ===== LED ===== */
         .led-container {
-            background: linear-gradient(135deg, rgba(22, 26, 40, 0.9) 0%, rgba(12, 14, 22, 0.98) 100%);
+            background: linear-gradient(135deg, rgba(22, 26, 40, 0.9), rgba(12, 14, 22, 0.98));
             border: 1px solid rgba(0, 242, 254, 0.25);
             border-radius: 32px;
             padding: 4rem;
@@ -506,7 +410,6 @@
             grid-template-columns: 1fr 1fr;
             gap: 4rem;
             align-items: center;
-            box-shadow: 0 20px 60px rgba(0, 242, 254, 0.08);
         }
         .led-content h3 {
             font-size: 2.5rem;
@@ -514,7 +417,7 @@
             margin-bottom: 1rem;
         }
         .led-content p {
-            color: var(--text-muted);
+            color: #94a3b8;
             margin-bottom: 2rem;
             font-size: 1.1rem;
         }
@@ -526,40 +429,33 @@
         }
         .led-spec-box {
             background: rgba(255, 255, 255, 0.03);
-            border: 1px solid var(--border-color);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             padding: 1.3rem;
             border-radius: 18px;
         }
         .led-spec-box h5 {
-            color: var(--accent-cyan);
+            color: #00f2fe;
             font-size: 1.15rem;
             font-weight: 700;
-            margin-bottom: 4px;
         }
         .led-spec-box p {
-            color: var(--text-muted);
+            color: #94a3b8;
             font-size: 0.88rem;
-            margin: 0;
-        }
-        .led-media {
-            border-radius: 24px;
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
         }
         .led-media img {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
             display: block;
         }
-
-        /* GALLERY */
-        .gallery-section {
-            max-width: 1300px;
-            margin: 0 auto 8rem;
-            padding: 0 2rem;
+        @media (max-width: 1024px) {
+            .led-container {
+                grid-template-columns: 1fr;
+                padding: 2.5rem;
+            }
         }
+
+        /* ===== GALERÍA ===== */
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -569,18 +465,18 @@
             position: relative;
             border-radius: 24px;
             overflow: hidden;
-            border: 1px solid var(--border-color);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             aspect-ratio: 4/3;
-            transition: all 0.4s ease;
+            transition: 0.4s;
         }
         .gallery-card img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.6s ease;
+            transition: 0.6s;
         }
         .gallery-card:hover {
-            border-color: var(--primary-red);
+            border-color: #ff1244;
             transform: translateY(-6px);
             box-shadow: 0 15px 35px rgba(255, 18, 68, 0.2);
         }
@@ -598,7 +494,7 @@
             justify-content: space-between;
             align-items: flex-end;
             opacity: 0;
-            transition: opacity 0.3s ease;
+            transition: 0.3s;
         }
         .gallery-card:hover .gallery-overlay {
             opacity: 1;
@@ -606,39 +502,40 @@
         .gallery-overlay span {
             color: #fff;
             font-weight: 700;
-            font-size: 1rem;
+        }
+        @media (max-width: 1024px) {
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
-        /* UPGRADES */
-        .upgrades-section {
-            max-width: 1300px;
-            margin: 0 auto 8rem;
-            padding: 0 2rem;
-        }
+        /* ===== UPGRADES ===== */
         .upgrades-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2.2rem;
         }
         .upgrade-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
+            background: rgba(18, 18, 26, 0.65);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 28px;
             padding: 3rem 2.2rem;
             text-align: center;
-            transition: all 0.4s ease;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            transition: 0.4s;
         }
         .upgrade-card:hover {
             transform: translateY(-8px);
-            border-color: var(--accent-cyan);
+            border-color: #00f2fe;
             box-shadow: 0 20px 45px rgba(0, 242, 254, 0.12);
         }
         .upgrade-icon {
             font-size: 3.2rem;
-            color: var(--accent-cyan);
+            color: #00f2fe;
             margin-bottom: 1.2rem;
         }
         .upgrade-title {
@@ -648,27 +545,20 @@
             margin-bottom: 0.5rem;
         }
         .upgrade-desc {
-            color: var(--text-muted);
+            color: #94a3b8;
             font-size: 1rem;
             line-height: 1.6;
             margin-bottom: 1.8rem;
         }
 
-        /* CONTACT */
-        .contact-section {
-            max-width: 1100px;
-            margin: 0 auto 7rem;
-            padding: 0 2rem;
-        }
+        /* ===== CONTACTO ===== */
         .contact-card {
-            background: linear-gradient(135deg, rgba(25, 20, 35, 0.95) 0%, rgba(12, 12, 18, 0.98) 100%);
+            background: linear-gradient(135deg, rgba(25, 20, 35, 0.95), rgba(12, 12, 18, 0.98));
             border: 1px solid rgba(255, 18, 68, 0.35);
             border-radius: 36px;
             padding: 4.5rem 3rem;
             text-align: center;
             box-shadow: 0 25px 70px rgba(0, 0, 0, 0.85);
-            position: relative;
-            overflow: hidden;
         }
         .contact-card h2 {
             font-size: 3.2rem;
@@ -676,7 +566,7 @@
             margin-bottom: 1.2rem;
         }
         .contact-card p {
-            color: var(--text-muted);
+            color: #94a3b8;
             font-size: 1.15rem;
             max-width: 620px;
             margin: 0 auto 2.8rem;
@@ -698,23 +588,23 @@
             height: 54px;
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--border-color);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             display: flex;
             align-items: center;
             justify-content: center;
             color: #fff;
             font-size: 1.3rem;
-            transition: all 0.3s ease;
+            transition: 0.3s;
             text-decoration: none;
         }
         .social-btn:hover {
-            background: var(--primary-red);
-            border-color: var(--primary-red);
+            background: #ff1244;
+            border-color: #ff1244;
             transform: translateY(-4px);
-            box-shadow: 0 8px 20px var(--primary-glow);
+            box-shadow: 0 8px 20px rgba(255, 18, 68, 0.5);
         }
 
-        /* WHATSAPP FLOAT */
+        /* ===== WHATSAPP FLOAT ===== */
         .whatsapp-float {
             position: fixed;
             bottom: 35px;
@@ -730,22 +620,22 @@
             justify-content: center;
             font-size: 2.3rem;
             box-shadow: 0 10px 30px rgba(37, 211, 102, 0.5);
-            transition: all 0.3s ease;
+            transition: 0.3s;
             text-decoration: none;
         }
         .whatsapp-float:hover {
-            transform: scale(1.12) rotate(5deg);
+            transform: scale(1.12);
             box-shadow: 0 12px 40px rgba(37, 211, 102, 0.7);
         }
 
-        /* EDITOR */
+        /* ===== EDITOR ESTILOS ===== */
         .edit-toggle-btn {
             background: none;
             border: none;
-            color: var(--text-muted);
+            color: #94a3b8;
             font-size: 1.2rem;
             cursor: pointer;
-            transition: color 0.3s, transform 0.3s;
+            transition: 0.3s;
             padding: 0 8px;
         }
         .edit-toggle-btn:hover {
@@ -753,15 +643,16 @@
             transform: scale(1.1);
         }
         .edit-toggle-btn.active {
-            color: var(--primary-red);
+            color: #ff1244;
         }
+
         .edit-btn-overlay {
             position: absolute;
             top: 10px;
             right: 10px;
             background: rgba(0, 0, 0, 0.7);
             color: #fff;
-            border: 2px solid var(--primary-red);
+            border: 2px solid #ff1244;
             border-radius: 50%;
             width: 36px;
             height: 36px;
@@ -770,18 +661,19 @@
             justify-content: center;
             font-size: 0.9rem;
             cursor: pointer;
-            transition: all 0.3s ease;
             z-index: 50;
             backdrop-filter: blur(4px);
             box-shadow: 0 0 15px rgba(255, 18, 68, 0.3);
+            transition: 0.3s;
         }
         .edit-btn-overlay:hover {
             transform: scale(1.2);
-            background: var(--primary-red);
+            background: #ff1244;
         }
         .edit-mode .edit-btn-overlay {
             display: flex !important;
         }
+
         .edit-container {
             position: relative;
         }
@@ -797,7 +689,7 @@
             font-size: 0.75rem;
         }
 
-        /* MODAL */
+        /* ===== MODAL ===== */
         .modal-overlay {
             display: none;
             position: fixed;
@@ -817,7 +709,7 @@
         }
         .modal-box {
             background: #1a1a24;
-            border: 1px solid var(--border-color);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 28px;
             max-width: 550px;
             width: 100%;
@@ -831,10 +723,10 @@
             color: #fff;
             font-size: 1.6rem;
             margin-bottom: 1.5rem;
-            font-family: var(--font-heading);
+            font-family: 'Syne', sans-serif;
         }
         .modal-box label {
-            color: var(--text-muted);
+            color: #94a3b8;
             font-weight: 600;
             display: block;
             margin: 1.2rem 0 0.4rem;
@@ -844,17 +736,16 @@
             width: 100%;
             padding: 0.8rem 1rem;
             border-radius: 12px;
-            border: 1px solid var(--border-color);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             background: rgba(255, 255, 255, 0.05);
             color: #fff;
-            font-family: var(--font-body);
+            font-family: 'Outfit', sans-serif;
             font-size: 1rem;
-            transition: border 0.3s;
         }
         .modal-box input[type="text"]:focus,
         .modal-box textarea:focus {
             outline: none;
-            border-color: var(--primary-red);
+            border-color: #ff1244;
         }
         .modal-box textarea {
             min-height: 80px;
@@ -865,7 +756,7 @@
             max-height: 200px;
             object-fit: contain;
             border-radius: 12px;
-            border: 1px solid var(--border-color);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             margin: 0.5rem 0 1rem;
             background: #0a0a10;
         }
@@ -879,11 +770,6 @@
         .modal-box .file-input-wrap label {
             margin: 0;
         }
-        .modal-box .file-input-wrap input[type="file"] {
-            flex: 1;
-            color: var(--text-muted);
-            padding: 0.4rem 0;
-        }
         .modal-actions {
             display: flex;
             gap: 1rem;
@@ -891,19 +777,13 @@
             justify-content: flex-end;
             flex-wrap: wrap;
         }
-        .modal-actions .btn-primary,
-        .modal-actions .btn-secondary {
-            padding: 0.6rem 1.8rem;
-            font-size: 0.95rem;
-        }
         .modal-close {
             position: absolute;
             top: 1rem;
             right: 1.5rem;
             font-size: 1.8rem;
-            color: var(--text-muted);
+            color: #94a3b8;
             cursor: pointer;
-            transition: color 0.3s;
             background: none;
             border: none;
         }
@@ -911,12 +791,12 @@
             color: #fff;
         }
 
-        /* FOOTER */
+        /* ===== FOOTER ===== */
         footer {
-            border-top: 1px solid var(--border-color);
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
             padding: 3.5rem 2rem;
             text-align: center;
-            color: var(--text-muted);
+            color: #94a3b8;
             font-size: 0.92rem;
             background: rgba(5, 5, 8, 0.95);
         }
@@ -925,190 +805,124 @@
             align-items: center;
             gap: 10px;
             background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--border-color);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             padding: 8px 22px;
             border-radius: 30px;
             font-size: 0.92rem;
-            color: var(--text-muted);
+            color: #94a3b8;
             margin-bottom: 1.2rem;
         }
         .visitor-counter i {
-            color: var(--accent-cyan);
+            color: #00f2fe;
         }
         .visitor-counter strong {
             color: #fff;
-        }
-
-        @media (max-width: 1024px) {
-            .hero {
-                grid-template-columns: 1fr;
-                padding-top: 150px;
-                text-align: center;
-            }
-            .hero-description {
-                margin: 0 auto 2.5rem;
-            }
-            .hero-cta,
-            .hero-stats {
-                justify-content: center;
-            }
-            .led-container {
-                grid-template-columns: 1fr;
-                padding: 2.5rem;
-            }
-            .gallery-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            .hamburger {
-                display: flex;
-            }
-            .hero-title {
-                font-size: 2.8rem;
-            }
-            .section-title {
-                font-size: 2.3rem;
-            }
-            .gallery-grid {
-                grid-template-columns: 1fr;
-            }
-            .contact-card {
-                padding: 3rem 1.5rem;
-            }
-            .contact-card h2 {
-                font-size: 2.2rem;
-            }
-            .whatsapp-float {
-                width: 55px;
-                height: 55px;
-                font-size: 1.8rem;
-                bottom: 20px;
-                right: 20px;
-            }
-            .edit-btn-overlay {
-                width: 28px;
-                height: 28px;
-                font-size: 0.7rem;
-                top: 5px;
-                right: 5px;
-            }
         }
     </style>
 </head>
 <body>
 
-    <div class="ambient-glow"></div>
-    <canvas id="particles-canvas"></canvas>
-
-    <!-- PRELOADER -->
-    <div id="preloader">
-        <!-- El logo se puede editar desde el modal (no depende de GitHub) -->
-        <img id="preloader-logo" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130' height='130' viewBox='0 0 130 130'%3E%3Crect width='130' height='130' fill='%231a1a24'/%3E%3Ctext x='15' y='80' font-family='Syne' font-size='28' fill='%23ff1244' font-weight='800'%3ECARLIXDJ%3C/text%3E%3C/svg%3E" alt="CARLIXDJ" />
-        <div style="margin-top: 1.5rem; color: var(--text-muted); font-weight: 600; letter-spacing: 3px;">CARGANDO EXPERIENCIA...</div>
-    </div>
-
     <!-- WHATSAPP FLOAT -->
-    <a href="https://wa.me/595981549856?text=Hola%20CARLIXDJ,%20quisiera%20consultar%20disponibilidad" class="whatsapp-float" target="_blank" aria-label="WhatsApp">
+    <a href="https://wa.me/595981549856?text=Hola%20CARLIXDJ" class="whatsapp-float" target="_blank">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
     <!-- HEADER -->
     <header>
-        <div class="nav-container">
-            <a href="#" class="logo-box">
-                <img id="logo-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' fill='%231a1a24'/%3E%3Ctext x='6' y='30' font-family='Syne' font-size='14' fill='%23ff1244' font-weight='800'%3EC%3C/text%3E%3C/svg%3E" alt="Logo" />
-                <span class="logo-text">CARLIXDJ</span>
+        <div class="nav">
+            <a href="#" class="logo">
+                <img id="logo-img" src="https://via.placeholder.com/100x100?text=CARLIXDJ" alt="Logo" />
+                CARLIXDJ
             </a>
             <ul class="nav-links">
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#paquetes">Paquetes</a></li>
-                <li><a href="#pantalla-led">Pantalla LED</a></li>
+                <li><a href="#pantalla-led">LED</a></li>
                 <li><a href="#galeria">Galería</a></li>
                 <li><a href="#mejora">Extras</a></li>
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
-            <a href="https://wa.me/595981549856?text=Hola%20CARLIXDJ,%20quiero%20reservar%20mi%20fecha" class="btn-primary" target="_blank">
-                <i class="fa-brands fa-whatsapp"></i> Reservar Fecha
+            <a href="https://wa.me/595981549856" class="btn-primary" target="_blank">
+                <i class="fa-brands fa-whatsapp"></i> Reservar
             </a>
         </div>
     </header>
 
-    <!-- ====== HERO ====== -->
-    <section class="hero" id="inicio">
-        <div class="hero-content">
-            <div class="hero-badge"><i class="fa-solid fa-bolt"></i> Producción de Eventos Premium</div>
+    <!-- ===== HERO ===== -->
+    <section class="container hero" id="inicio">
+        <div>
+            <div class="hero-badge"><i class="fa-solid fa-bolt"></i> Producción Premium</div>
             <div class="location-badge"><i class="fa-solid fa-location-dot"></i> Villeta · Central · Cobertura Total</div>
             <h1 class="hero-title edit-container">
                 <span class="edit-text" id="hero_title">Tu fiesta al <span class="text-gradient-red">siguiente nivel</span></span>
                 <button class="edit-btn-overlay" data-key="hero" data-type="text" data-text-target="hero_title"></button>
             </h1>
-            <p class="hero-description edit-container" id="hero_desc">
-                <span class="edit-text" id="hero_desc_text">Sistemas de sonido Line Array, luces robóticas y pantallas LED HD para Bodas, 15 Años y Fiestas Privadas.</span>
+            <p class="hero-desc edit-container" id="hero_desc">
+                <span class="edit-text" id="hero_desc_text">Sistemas de sonido Line Array de alta potencia, luces robóticas y pantallas LED HD.</span>
                 <button class="edit-btn-overlay" data-key="hero" data-type="text" data-text-target="hero_desc_text"></button>
             </p>
             <div class="hero-cta">
                 <a href="#paquetes" class="btn-primary"><i class="fa-solid fa-compact-disc"></i> Ver Paquetes</a>
-                <a href="https://wa.me/595981549856" class="btn-secondary" target="_blank"><i class="fa-brands fa-whatsapp"></i> Consultar WhatsApp</a>
+                <a href="https://wa.me/595981549856" class="btn-secondary" target="_blank"><i class="fa-brands fa-whatsapp"></i> Consultar</a>
             </div>
             <div class="hero-stats">
-                <div class="stat-item"><h3>100%</h3><p>Garantía de Fiesta</p></div>
-                <div class="stat-item"><h3>Line Array</h3><p>Audio Profesional</p></div>
-                <div class="stat-item"><h3>Pantallas LED</h3><p>Módulos HD 3x2</p></div>
+                <div><h3>100%</h3><p>Garantía</p></div>
+                <div><h3>Line Array</h3><p>Audio Profesional</p></div>
+                <div><h3>Pantallas LED</h3><p>HD 3x2</p></div>
             </div>
         </div>
-        <div class="hero-media-wrapper edit-container">
-            <div class="hero-card-featured">
-                <!-- Imagen por defecto (placeholder) -->
-                <img id="hero_img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%231a1a24'/%3E%3Ctext x='180' y='200' font-family='Syne' font-size='28' fill='%23666'%3EImagen Hero%3C/text%3E%3C/svg%3E" alt="Hero" />
+        <div class="edit-container">
+            <div class="hero-img-container">
+                <img id="hero_img" src="https://via.placeholder.com/800x600?text=CARLIXDJ+Evento" alt="Hero" />
             </div>
             <button class="edit-btn-overlay" data-key="hero" data-type="image+text" data-img-target="hero_img" data-text-target="hero_title" data-text-target2="hero_desc_text"></button>
         </div>
     </section>
 
-    <!-- ====== FEATURES (textos editables) ====== -->
+    <!-- ===== FEATURES ===== -->
     <section class="features-bar">
-        <div class="features-grid">
+        <div class="container features-grid">
+            <!-- Feature 1 -->
             <div class="feature-card edit-container">
                 <div class="feature-icon"><i class="fa-solid fa-sliders"></i></div>
                 <div class="feature-text">
                     <h4 class="edit-text" id="feature1_title">Audio de Alta Fidelidad</h4>
-                    <p class="edit-text" id="feature1_desc">Subwoofers de 18" y torres Line Array de nitidez cristalina.</p>
+                    <p class="edit-text" id="feature1_desc">Subwoofers de 18" y torres Line Array cristalinas.</p>
                 </div>
                 <button class="edit-btn-overlay" data-key="feature1" data-type="text" data-text-target="feature1_title" data-text-target2="feature1_desc"></button>
             </div>
+            <!-- Feature 2 -->
             <div class="feature-card edit-container">
                 <div class="feature-icon"><i class="fa-solid fa-lightbulb"></i></div>
                 <div class="feature-text">
                     <h4 class="edit-text" id="feature2_title">Iluminación Robótica</h4>
-                    <p class="edit-text" id="feature2_desc">Cabezas móviles Beam, Par LEDs y efectos robóticos de escenario.</p>
+                    <p class="edit-text" id="feature2_desc">Cabezas móviles Beam y Par LEDs de escenario.</p>
                 </div>
                 <button class="edit-btn-overlay" data-key="feature2" data-type="text" data-text-target="feature2_title" data-text-target2="feature2_desc"></button>
             </div>
+            <!-- Feature 3 -->
             <div class="feature-card edit-container">
                 <div class="feature-icon"><i class="fa-solid fa-tv"></i></div>
                 <div class="feature-text">
                     <h4 class="edit-text" id="feature3_title">Visuales en Pantalla LED</h4>
-                    <p class="edit-text" id="feature3_desc">Estructuras modulares, tótems y cabina de DJ con LED integrados.</p>
+                    <p class="edit-text" id="feature3_desc">Estructuras modulares y cabina DJ con LED integrados.</p>
                 </div>
                 <button class="edit-btn-overlay" data-key="feature3" data-type="text" data-text-target="feature3_title" data-text-target2="feature3_desc"></button>
             </div>
+            <!-- Feature 4 -->
             <div class="feature-card edit-container">
                 <div class="feature-icon"><i class="fa-solid fa-clock"></i></div>
                 <div class="feature-text">
                     <h4 class="edit-text" id="feature4_title">Puntualidad & Respaldo</h4>
-                    <p class="edit-text" id="feature4_desc">Montaje anticipado, operador técnico en vivo y contrato garantizado.</p>
+                    <p class="edit-text" id="feature4_desc">Montaje anticipado y operador técnico en vivo.</p>
                 </div>
                 <button class="edit-btn-overlay" data-key="feature4" data-type="text" data-text-target="feature4_title" data-text-target2="feature4_desc"></button>
             </div>
         </div>
     </section>
 
-    <!-- ====== PAQUETES ====== -->
-    <section class="packages-section" id="paquetes">
+    <!-- ===== PAQUETES ===== -->
+    <section class="container packages-section" id="paquetes">
         <div class="section-header">
             <span class="section-subtitle">Nuestras Propuestas</span>
             <h2 class="section-title edit-container">
@@ -1116,7 +930,7 @@
                 <button class="edit-btn-overlay" data-key="paquetes_title" data-type="text" data-text-target="paquetes_title"></button>
             </h2>
             <p class="section-desc edit-container">
-                <span class="edit-text" id="paquetes_desc">Diseñados a la medida exacta de tu evento y la cantidad de invitados.</span>
+                <span class="edit-text" id="paquetes_desc">Diseñados a la medida de tu evento.</span>
                 <button class="edit-btn-overlay" data-key="paquetes_desc" data-type="text" data-text-target="paquetes_desc"></button>
             </p>
         </div>
@@ -1124,94 +938,89 @@
             <!-- Paquete 1 -->
             <div class="package-card edit-container">
                 <div class="package-img">
-                    <img id="paquete1_img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='230' viewBox='0 0 400 230'%3E%3Crect width='400' height='230' fill='%231a1a24'/%3E%3Ctext x='100' y='120' font-family='Syne' font-size='22' fill='%23666'%3EPaquete 1%3C/text%3E%3C/svg%3E" alt="Paquete 1" />
+                    <img id="paquete1_img" src="https://via.placeholder.com/600x400?text=Paquete+1" alt="Paquete 1" />
                 </div>
                 <button class="edit-btn-overlay" data-key="paquete1" data-type="image+text" data-img-target="paquete1_img" data-text-target="paquete1_titulo" data-text-target2="paquete1_sub"></button>
                 <div class="package-body">
                     <h3 class="package-title edit-text" id="paquete1_titulo">Equipo Básico</h3>
-                    <span class="package-subtitle edit-text" id="paquete1_sub">Ideal para Salones y Reuniones Social</span>
+                    <span class="package-subtitle edit-text" id="paquete1_sub">Ideal para Salones</span>
                     <ul class="package-specs">
-                        <li><i class="fa-solid fa-circle-check"></i> 2 Subwoofers de 18"</li>
+                        <li><i class="fa-solid fa-circle-check"></i> 2 Subwoofers 18"</li>
                         <li><i class="fa-solid fa-circle-check"></i> 2 Módulos Line Array</li>
                         <li><i class="fa-solid fa-check"></i> Consola DJ profesional</li>
                         <li><i class="fa-solid fa-check"></i> 2 Luces robóticas Beam</li>
-                        <li><i class="fa-solid fa-check"></i> 2 Luces Par LED</li>
                         <li><i class="fa-solid fa-clock"></i> 5 Horas de servicio</li>
                     </ul>
-                    <a href="https://wa.me/595981549856?text=Hola%20CARLIXDJ,%20me%20interesa%20el%20Equipo%20B%C3%A1sico" class="btn-secondary" style="justify-content: center;" target="_blank">Consultar Paquete</a>
+                    <a href="https://wa.me/595981549856" class="btn-secondary" style="justify-content:center; display:flex;" target="_blank">Consultar</a>
                 </div>
             </div>
-
             <!-- Paquete 2 (destacado) -->
             <div class="package-card featured edit-container">
                 <div class="featured-badge">Más Elegido</div>
                 <div class="package-img">
-                    <img id="paquete2_img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='230' viewBox='0 0 400 230'%3E%3Crect width='400' height='230' fill='%231a1a24'/%3E%3Ctext x='100' y='120' font-family='Syne' font-size='22' fill='%23666'%3EPaquete 2%3C/text%3E%3C/svg%3E" alt="Paquete 2" />
+                    <img id="paquete2_img" src="https://via.placeholder.com/600x400?text=Paquete+2" alt="Paquete 2" />
                 </div>
                 <button class="edit-btn-overlay" data-key="paquete2" data-type="image+text" data-img-target="paquete2_img" data-text-target="paquete2_titulo" data-text-target2="paquete2_sub"></button>
                 <div class="package-body">
                     <h3 class="package-title edit-text" id="paquete2_titulo">Básico + Pantalla LED</h3>
-                    <span class="package-subtitle edit-text" id="paquete2_sub">Impacto Visual Completo para XV Años y Bodas</span>
+                    <span class="package-subtitle edit-text" id="paquete2_sub">Impacto Visual Total</span>
                     <ul class="package-specs">
                         <li><i class="fa-solid fa-circle-check"></i> Pantalla LED Integrada</li>
                         <li><i class="fa-solid fa-circle-check"></i> Controlador de Video HD</li>
-                        <li><i class="fa-solid fa-check"></i> 2 Subwoofers 18" + 2 Line Array</li>
-                        <li><i class="fa-solid fa-check"></i> 2 Luces robóticas + 2 Par LED</li>
-                        <li><i class="fa-solid fa-check"></i> 2 Máquinas de humo vertical</li>
+                        <li><i class="fa-solid fa-check"></i> 2 Subwoofers + 2 Line Array</li>
+                        <li><i class="fa-solid fa-check"></i> 2 Beam + 2 Par LED</li>
                         <li><i class="fa-solid fa-clock"></i> 6 Horas de show</li>
                     </ul>
-                    <a href="https://wa.me/595981549856?text=Hola%20CARLIXDJ,%20me%20interesa%20el%20Equipo%20B%C3%A1sico%20con%20Pantalla%20LED" class="btn-primary" style="justify-content: center;" target="_blank">Consultar Este Paquete</a>
+                    <a href="https://wa.me/595981549856" class="btn-primary" style="justify-content:center; display:flex;" target="_blank">Consultar</a>
                 </div>
             </div>
-
             <!-- Paquete 3 -->
             <div class="package-card edit-container">
                 <div class="package-img">
-                    <img id="paquete3_img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='230' viewBox='0 0 400 230'%3E%3Crect width='400' height='230' fill='%231a1a24'/%3E%3Ctext x='100' y='120' font-family='Syne' font-size='22' fill='%23666'%3EPaquete 3%3C/text%3E%3C/svg%3E" alt="Paquete 3" />
+                    <img id="paquete3_img" src="https://via.placeholder.com/600x400?text=Paquete+3" alt="Paquete 3" />
                 </div>
                 <button class="edit-btn-overlay" data-key="paquete3" data-type="image+text" data-img-target="paquete3_img" data-text-target="paquete3_titulo" data-text-target2="paquete3_sub"></button>
                 <div class="package-body">
                     <h3 class="package-title edit-text" id="paquete3_titulo">Equipo Exterior / Show</h3>
-                    <span class="package-subtitle edit-text" id="paquete3_sub">Potencia Max para Quintas y Grandes Fiestas</span>
+                    <span class="package-subtitle edit-text" id="paquete3_sub">Potencia para Quintas</span>
                     <ul class="package-specs">
-                        <li><i class="fa-solid fa-circle-check"></i> 8 Subwoofers de 18"</li>
+                        <li><i class="fa-solid fa-circle-check"></i> 8 Subwoofers 18"</li>
                         <li><i class="fa-solid fa-circle-check"></i> 6 Módulos Line Array</li>
-                        <li><i class="fa-solid fa-check"></i> 4 Robóticas + 8 Par LED</li>
-                        <li><i class="fa-solid fa-check"></i> 2 Máquinas de humo de alto flujo</li>
-                        <li><i class="fa-solid fa-check"></i> Micrófonos inalámbricos</li>
+                        <li><i class="fa-solid fa-check"></i> 4 Beam + 8 Par LED</li>
+                        <li><i class="fa-solid fa-check"></i> Máquinas de humo</li>
                         <li><i class="fa-solid fa-users-gear"></i> Staff completo</li>
                     </ul>
-                    <a href="https://wa.me/595981549856?text=Hola%20CARLIXDJ,%20quiero%20cotizar%20el%20Equipo%20Exterior" class="btn-secondary" style="justify-content: center;" target="_blank">Consultar Show</a>
+                    <a href="https://wa.me/595981549856" class="btn-secondary" style="justify-content:center; display:flex;" target="_blank">Consultar</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ====== LED ====== -->
-    <section class="led-spotlight" id="pantalla-led">
+    <!-- ===== LED ===== -->
+    <section class="container led-spotlight" id="pantalla-led">
         <div class="led-container">
             <div class="led-content edit-container">
                 <span class="section-subtitle">Tecnología de Vanguardia</span>
                 <h3 class="edit-text" id="led_titulo">Alquiler de Pantalla LED HD</h3>
-                <p class="edit-text" id="led_desc">Pantallas LED configurables de 3x2 metros, tótems laterales o cabina DJ interactiva.</p>
+                <p class="edit-text" id="led_desc">Configurable: pantalla gigante de 3x2 metros, tótems laterales o cabina DJ interactiva.</p>
                 <div class="led-grid">
                     <div class="led-spec-box"><h5>3 x 2 Metros</h5><p>12 Módulos HD</p></div>
-                    <div class="led-spec-box"><h5>Múltiples Formatos</h5><p>Pantalla entera, Tótems o Cabina</p></div>
+                    <div class="led-spec-box"><h5>Múltiples Formatos</h5><p>Pantalla, Tótems o Cabina</p></div>
                     <div class="led-spec-box"><h5>Estructura Truss</h5><p>Soporte firme y seguro</p></div>
-                    <div class="led-spec-box"><h5>Precio bajo consulta</h5><p>Servicio individual o en paquete</p></div>
+                    <div class="led-spec-box"><h5>Precio bajo consulta</h5><p>Servicio individual</p></div>
                 </div>
-                <a href="https://wa.me/595981549856?text=Hola%20CARLIXDJ,%20quiero%20informaci%C3%B3n%20sobre%20la%20Pantalla%20LED" class="btn-primary" target="_blank"><i class="fa-solid fa-tv"></i> Consultar Disponibilidad LED</a>
+                <a href="https://wa.me/595981549856" class="btn-primary" target="_blank"><i class="fa-solid fa-tv"></i> Consultar Disponibilidad</a>
                 <button class="edit-btn-overlay" data-key="led" data-type="image+text" data-img-target="led_img" data-text-target="led_titulo" data-text-target2="led_desc"></button>
             </div>
             <div class="led-media edit-container">
-                <img id="led_img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%231a1a24'/%3E%3Ctext x='180' y='200' font-family='Syne' font-size='28' fill='%23666'%3EPantalla LED%3C/text%3E%3C/svg%3E" alt="LED" />
+                <img id="led_img" src="https://via.placeholder.com/800x600?text=Pantalla+LED" alt="LED" />
                 <button class="edit-btn-overlay" data-key="led" data-type="image+text" data-img-target="led_img" data-text-target="led_titulo" data-text-target2="led_desc"></button>
             </div>
         </div>
     </section>
 
-    <!-- ====== GALERÍA ====== -->
-    <section class="gallery-section" id="galeria">
+    <!-- ===== GALERÍA ===== -->
+    <section class="container gallery-section" id="galeria">
         <div class="section-header">
             <span class="section-subtitle">Galería de Eventos</span>
             <h2 class="section-title edit-container">
@@ -1219,52 +1028,47 @@
                 <button class="edit-btn-overlay" data-key="galeria_title" data-type="text" data-text-target="galeria_title"></button>
             </h2>
             <p class="section-desc edit-container">
-                <span class="edit-text" id="galeria_desc">Echa un vistazo a la calidad de nuestras puestas en escena.</span>
+                <span class="edit-text" id="galeria_desc">Mira la calidad de nuestras puestas en escena.</span>
                 <button class="edit-btn-overlay" data-key="galeria_desc" data-type="text" data-text-target="galeria_desc"></button>
             </p>
         </div>
         <div class="gallery-grid">
-            <!-- Galería 1 -->
+            <!-- Cada tarjeta de galería -->
             <div class="gallery-card edit-container">
-                <img id="galeria1_img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%231a1a24'/%3E%3Ctext x='100' y='160' font-family='Syne' font-size='24' fill='%23666'%3EFoto 1%3C/text%3E%3C/svg%3E" alt="Galería 1" />
-                <div class="gallery-overlay"><span class="edit-text" id="galeria1_text">Fiesta de 15 Años</span> <i class="fa-solid fa-camera text-gradient-red"></i></div>
+                <img id="galeria1_img" src="https://via.placeholder.com/600x450?text=Foto+1" alt="Galeria 1" />
+                <div class="gallery-overlay"><span class="edit-text" id="galeria1_text">Evento 1</span> <i class="fa-solid fa-camera text-gradient-red"></i></div>
                 <button class="edit-btn-overlay" data-key="galeria1" data-type="image+text" data-img-target="galeria1_img" data-text-target="galeria1_text"></button>
             </div>
-            <!-- Galería 2 -->
             <div class="gallery-card edit-container">
-                <img id="galeria2_img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%231a1a24'/%3E%3Ctext x='100' y='160' font-family='Syne' font-size='24' fill='%23666'%3EFoto 2%3C/text%3E%3C/svg%3E" alt="Galería 2" />
-                <div class="gallery-overlay"><span class="edit-text" id="galeria2_text">Sonido e Iluminación</span> <i class="fa-solid fa-camera text-gradient-red"></i></div>
+                <img id="galeria2_img" src="https://via.placeholder.com/600x450?text=Foto+2" alt="Galeria 2" />
+                <div class="gallery-overlay"><span class="edit-text" id="galeria2_text">Evento 2</span> <i class="fa-solid fa-camera text-gradient-red"></i></div>
                 <button class="edit-btn-overlay" data-key="galeria2" data-type="image+text" data-img-target="galeria2_img" data-text-target="galeria2_text"></button>
             </div>
-            <!-- Galería 3 -->
             <div class="gallery-card edit-container">
-                <img id="galeria3_img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%231a1a24'/%3E%3Ctext x='100' y='160' font-family='Syne' font-size='24' fill='%23666'%3EFoto 3%3C/text%3E%3C/svg%3E" alt="Galería 3" />
-                <div class="gallery-overlay"><span class="edit-text" id="galeria3_text">Estructura LED & DJ</span> <i class="fa-solid fa-camera text-gradient-red"></i></div>
+                <img id="galeria3_img" src="https://via.placeholder.com/600x450?text=Foto+3" alt="Galeria 3" />
+                <div class="gallery-overlay"><span class="edit-text" id="galeria3_text">Evento 3</span> <i class="fa-solid fa-camera text-gradient-red"></i></div>
                 <button class="edit-btn-overlay" data-key="galeria3" data-type="image+text" data-img-target="galeria3_img" data-text-target="galeria3_text"></button>
             </div>
-            <!-- Galería 4 -->
             <div class="gallery-card edit-container">
-                <img id="galeria4_img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%231a1a24'/%3E%3Ctext x='100' y='160' font-family='Syne' font-size='24' fill='%23666'%3EFoto 4%3C/text%3E%3C/svg%3E" alt="Galería 4" />
-                <div class="gallery-overlay"><span class="edit-text" id="galeria4_text">Evento Exterior</span> <i class="fa-solid fa-camera text-gradient-red"></i></div>
+                <img id="galeria4_img" src="https://via.placeholder.com/600x450?text=Foto+4" alt="Galeria 4" />
+                <div class="gallery-overlay"><span class="edit-text" id="galeria4_text">Evento 4</span> <i class="fa-solid fa-camera text-gradient-red"></i></div>
                 <button class="edit-btn-overlay" data-key="galeria4" data-type="image+text" data-img-target="galeria4_img" data-text-target="galeria4_text"></button>
             </div>
-            <!-- Galería 5 -->
             <div class="gallery-card edit-container">
-                <img id="galeria5_img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%231a1a24'/%3E%3Ctext x='100' y='160' font-family='Syne' font-size='24' fill='%23666'%3EFoto 5%3C/text%3E%3C/svg%3E" alt="Galería 5" />
-                <div class="gallery-overlay"><span class="edit-text" id="galeria5_text">Visuales LED HD</span> <i class="fa-solid fa-camera text-gradient-red"></i></div>
+                <img id="galeria5_img" src="https://via.placeholder.com/600x450?text=Foto+5" alt="Galeria 5" />
+                <div class="gallery-overlay"><span class="edit-text" id="galeria5_text">Evento 5</span> <i class="fa-solid fa-camera text-gradient-red"></i></div>
                 <button class="edit-btn-overlay" data-key="galeria5" data-type="image+text" data-img-target="galeria5_img" data-text-target="galeria5_text"></button>
             </div>
-            <!-- Galería 6 -->
             <div class="gallery-card edit-container">
-                <img id="galeria6_img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%231a1a24'/%3E%3Ctext x='100' y='160' font-family='Syne' font-size='24' fill='%23666'%3EFoto 6%3C/text%3E%3C/svg%3E" alt="Galería 6" />
-                <div class="gallery-overlay"><span class="edit-text" id="galeria6_text">Fiesta en Vivo</span> <i class="fa-solid fa-camera text-gradient-red"></i></div>
+                <img id="galeria6_img" src="https://via.placeholder.com/600x450?text=Foto+6" alt="Galeria 6" />
+                <div class="gallery-overlay"><span class="edit-text" id="galeria6_text">Evento 6</span> <i class="fa-solid fa-camera text-gradient-red"></i></div>
                 <button class="edit-btn-overlay" data-key="galeria6" data-type="image+text" data-img-target="galeria6_img" data-text-target="galeria6_text"></button>
             </div>
         </div>
     </section>
 
-    <!-- ====== UPGRADES ====== -->
-    <section class="upgrades-section" id="mejora">
+    <!-- ===== UPGRADES ===== -->
+    <section class="container upgrades-section" id="mejora">
         <div class="section-header">
             <span class="section-subtitle">Opcionales Exclusivos</span>
             <h2 class="section-title edit-container">
@@ -1272,7 +1076,7 @@
                 <button class="edit-btn-overlay" data-key="upgrades_title" data-type="text" data-text-target="upgrades_title"></button>
             </h2>
             <p class="section-desc edit-container">
-                <span class="edit-text" id="upgrades_desc">Añade estos complementos para darle un toque aún más deslumbrante.</span>
+                <span class="edit-text" id="upgrades_desc">Complementos para darle un toque único.</span>
                 <button class="edit-btn-overlay" data-key="upgrades_desc" data-type="text" data-text-target="upgrades_desc"></button>
             </p>
         </div>
@@ -1280,35 +1084,35 @@
             <div class="upgrade-card edit-container">
                 <div class="upgrade-icon"><i class="fa-regular fa-square"></i></div>
                 <h3 class="upgrade-title edit-text" id="upgrade1_titulo">Pista LED 4x4</h3>
-                <p class="upgrade-desc edit-text" id="upgrade1_desc">Pista de baile iluminada con LED, ambiente futurista inolvidable.</p>
-                <a href="https://wa.me/595981549856?text=Hola%20CARLIXDJ,%20quiero%20consultar%20la%20Pista%20LED%204x4" class="btn-secondary" target="_blank" style="width:100%; justify-content:center;">Consultar Pista</a>
+                <p class="upgrade-desc edit-text" id="upgrade1_desc">Pista de baile iluminada con tecnología LED.</p>
+                <a href="https://wa.me/595981549856" class="btn-secondary" style="width:100%; justify-content:center; display:flex;" target="_blank">Consultar</a>
                 <button class="edit-btn-overlay" data-key="upgrade1" data-type="text" data-text-target="upgrade1_titulo" data-text-target2="upgrade1_desc"></button>
             </div>
             <div class="upgrade-card edit-container">
                 <div class="upgrade-icon"><i class="fa-regular fa-gem"></i></div>
                 <h3 class="upgrade-title edit-text" id="upgrade2_titulo">Pista Paris</h3>
-                <p class="upgrade-desc edit-text" id="upgrade2_desc">Diseño elegante con destellos estelares, perfecto para bodas y quinceañeras.</p>
-                <a href="https://wa.me/595981549856?text=Hola%20CARLIXDJ,%20quiero%20consultar%20la%20Pista%20Paris" class="btn-secondary" target="_blank" style="width:100%; justify-content:center;">Consultar Pista</a>
+                <p class="upgrade-desc edit-text" id="upgrade2_desc">Diseño elegante con destellos estelares.</p>
+                <a href="https://wa.me/595981549856" class="btn-secondary" style="width:100%; justify-content:center; display:flex;" target="_blank">Consultar</a>
                 <button class="edit-btn-overlay" data-key="upgrade2" data-type="text" data-text-target="upgrade2_titulo" data-text-target2="upgrade2_desc"></button>
             </div>
             <div class="upgrade-card edit-container">
                 <div class="upgrade-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
                 <h3 class="upgrade-title edit-text" id="upgrade3_titulo">Chispa Fría</h3>
-                <p class="upgrade-desc edit-text" id="upgrade3_desc">Efectos pirotécnicos de chispa fría seguros para interiores.</p>
-                <a href="https://wa.me/595981549856?text=Hola%20CARLIXDJ,%20quiero%20consultar%20Chispa%20Fr%C3%ADa" class="btn-primary" target="_blank" style="width:100%; justify-content:center;">Consultar Efecto</a>
+                <p class="upgrade-desc edit-text" id="upgrade3_desc">Efectos pirotécnicos seguros para interiores.</p>
+                <a href="https://wa.me/595981549856" class="btn-primary" style="width:100%; justify-content:center; display:flex;" target="_blank">Consultar</a>
                 <button class="edit-btn-overlay" data-key="upgrade3" data-type="text" data-text-target="upgrade3_titulo" data-text-target2="upgrade3_desc"></button>
             </div>
         </div>
     </section>
 
-    <!-- ====== CONTACTO ====== -->
-    <section class="contact-section" id="contacto">
+    <!-- ===== CONTACTO ===== -->
+    <section class="container contact-section" id="contacto">
         <div class="contact-card edit-container">
             <h2 class="edit-text" id="contacto_titulo">¿Listo para hacer vibrar tu fecha?</h2>
-            <p class="edit-text" id="contacto_desc">Reserva con tiempo mediante seña y asegura el mejor equipamiento audiovisual.</p>
+            <p class="edit-text" id="contacto_desc">Reserva con tiempo y asegura el mejor equipamiento audiovisual.</p>
             <div class="contact-actions">
-                <a href="https://wa.me/595981549856?text=Hola%20CARLIXDJ,%20quisiera%20reservar%20mi%20fecha" class="btn-primary" target="_blank" style="font-size:1.15rem; padding:1rem 2.8rem;"><i class="fa-brands fa-whatsapp"></i> Hablar al 0981 549 856</a>
-                <a href="tel:0981549856" class="btn-secondary" style="font-size:1.15rem; padding:1rem 2.8rem;"><i class="fa-solid fa-phone"></i> Llama al 0981 549 856</a>
+                <a href="https://wa.me/595981549856" class="btn-primary" style="font-size:1.15rem; padding:1rem 2.8rem;"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+                <a href="tel:0981549856" class="btn-secondary" style="font-size:1.15rem; padding:1rem 2.8rem;"><i class="fa-solid fa-phone"></i> Llama</a>
             </div>
             <div class="social-links">
                 <a href="#" class="social-btn"><i class="fa-brands fa-facebook-f"></i></a>
@@ -1319,16 +1123,16 @@
         </div>
     </section>
 
-    <!-- ====== FOOTER ====== -->
+    <!-- ===== FOOTER ===== -->
     <footer>
         <div class="visitor-counter">
             <i class="fa-solid fa-eye"></i>
             <span>Visitas: <strong id="visit-count">Cargando...</strong></span>
-            <button class="edit-toggle-btn" id="editToggleBtn" aria-label="Editar" title="Editar (contraseña: 1234)">
+            <button class="edit-toggle-btn" id="editToggleBtn" title="Editar (contraseña: 1234)">
                 <i class="fa-solid fa-pen"></i>
             </button>
         </div>
-        <p class="edit-text" id="footer_copyright">&copy; 2026 CARLIXDJ / GS Producciones. Todos los derechos reservados.</p>
+        <p class="edit-text" id="footer_copyright">&copy; 2026 CARLIXDJ. Todos los derechos reservados.</p>
         <p style="margin-top:0.5rem; font-size:0.85rem;" class="edit-text" id="footer_ubicacion">Villeta, Central · Paraguay</p>
         <button class="edit-btn-overlay" data-key="footer" data-type="text" data-text-target="footer_copyright" data-text-target2="footer_ubicacion" style="position:relative; display:none; margin:0 auto;"></button>
     </footer>
@@ -1338,7 +1142,8 @@
         <div class="modal-box">
             <button class="modal-close" id="modalCloseBtn">&times;</button>
             <h3 id="modalTitle">Editar elemento</h3>
-            <div id="modalImageSection" style="display:none;">
+            <!-- Sección de imagen (siempre visible, pero puede ocultarse para elementos solo texto) -->
+            <div id="modalImageSection">
                 <label>Imagen actual</label>
                 <img id="modalImgPreview" class="img-preview" src="" alt="Vista previa" />
                 <label for="modalImgUrl">URL de imagen (o usa el botón de abajo)</label>
@@ -1362,28 +1167,23 @@
 
     <!-- ===== SCRIPTS ===== -->
     <script>
-        // ============================================================
-        // CONFIGURACIÓN (¡cambia aquí tus datos!)
-        // ============================================================
+        // =============================================================
+        // CONFIGURACIÓN (cambia aquí tus datos)
+        // =============================================================
         const CONFIG = {
-            CLOUD_NAME: 'fu4efzoy', // ← tu Cloud Name
-            UPLOAD_PRESET: 'carlixdj_preset', // ← tu Upload Preset sin firma
-            FIREBASE_URL: 'https://carlixdj-da9b5-default-rtdb.firebaseio.com/', // ← tu URL de Firebase
+            CLOUD_NAME: 'fu4efzoy',
+            UPLOAD_PRESET: 'carlixdj_preset', // pon el nombre que creaste en Cloudinary
+            FIREBASE_URL: 'https://carlixdj-da9b5-default-rtdb.firebaseio.com/', // tu URL de Firebase
             PASSWORD: '1234'
         };
 
-        // ============================================================
-        // 1. PRELOADER
-        // ============================================================
-        window.addEventListener('load', function() {
-            setTimeout(function() {
-                document.getElementById('preloader').classList.add('hidden');
-            }, 1200);
-        });
+        // =============================================================
+        // PRELOADER (opcional, lo quitamos para simplificar)
+        // =============================================================
 
-        // ============================================================
-        // 2. CONTADOR DE VISITAS (Firebase)
-        // ============================================================
+        // =============================================================
+        // CONTADOR DE VISITAS
+        // =============================================================
         function loadVisitCounter() {
             const url = CONFIG.FIREBASE_URL + 'visitas.json';
             const countElement = document.getElementById('visit-count');
@@ -1400,74 +1200,9 @@
         }
         document.addEventListener('DOMContentLoaded', loadVisitCounter);
 
-        // ============================================================
-        // 3. PARTÍCULAS (fondo)
-        // ============================================================
-        (function() {
-            const canvas = document.getElementById('particles-canvas');
-            const ctx = canvas.getContext('2d');
-            let width, height;
-            let particles = [];
-
-            function resize() {
-                width = canvas.width = window.innerWidth;
-                height = canvas.height = window.innerHeight;
-            }
-            window.addEventListener('resize', resize);
-            resize();
-
-            class Particle {
-                constructor() {
-                    this.reset();
-                }
-                reset() {
-                    this.x = Math.random() * width;
-                    this.y = Math.random() * height;
-                    this.size = Math.random() * 3 + 1;
-                    this.speedY = Math.random() * 1.5 + 0.5;
-                    this.speedX = (Math.random() - 0.5) * 0.5;
-                    this.opacity = Math.random() * 0.5 + 0.2;
-                    this.color = Math.random() > 0.5 ? '#ff1244' : '#00f2fe';
-                }
-                update() {
-                    this.y -= this.speedY;
-                    this.x += this.speedX;
-                    if (this.y < -10) {
-                        this.y = height + 10;
-                        this.x = Math.random() * width;
-                    }
-                }
-                draw() {
-                    ctx.save();
-                    ctx.globalAlpha = this.opacity;
-                    ctx.fillStyle = this.color;
-                    ctx.shadowColor = this.color;
-                    ctx.shadowBlur = 10;
-                    ctx.beginPath();
-                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                    ctx.fill();
-                    ctx.restore();
-                }
-            }
-
-            for (let i = 0; i < 70; i++) {
-                particles.push(new Particle());
-            }
-
-            function animate() {
-                ctx.clearRect(0, 0, width, height);
-                particles.forEach(p => {
-                    p.update();
-                    p.draw();
-                });
-                requestAnimationFrame(animate);
-            }
-            animate();
-        })();
-
-        // ============================================================
-        // 4. SISTEMA DE EDICIÓN CON FIREBASE + CLOUDINARY
-        // ============================================================
+        // =============================================================
+        // SISTEMA DE EDICIÓN CON FIREBASE + CLOUDINARY
+        // =============================================================
         (function() {
             // Elementos DOM
             const editToggleBtn = document.getElementById('editToggleBtn');
@@ -1543,10 +1278,10 @@
                 }
             }
 
-            // ----- Cargar inicial -----
+            // Cargar inicial
             loadContent().then(content => applyContent(content));
 
-            // ----- Guardar cambios desde modal -----
+            // ----- Guardar cambios desde el modal -----
             function saveCurrentEdit() {
                 if (!currentEditKey) return;
                 const imgValue = modalImgUrl.value.trim();
@@ -1611,22 +1346,21 @@
                     if (entry.text1 && entry.textTarget1 === textTarget1) currentText1 = entry.text1;
                     if (entry.text2 && entry.textTarget2 === textTarget2) currentText2 = entry.text2;
 
-                    if (type === 'image' || type === 'image+text') {
-                        modalImageSection.style.display = 'block';
-                        modalImgPreview.src = currentImg || 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect width=%22200%22 height=%22200%22 fill=%22%231a1a24%22/%3E%3Ctext x=%2250%22 y=%22110%22 font-family=%22Syne%22 font-size=%2220%22 fill=%22%23666%22%3ESin imagen%3C/text%3E%3C/svg%3E';
-                        modalImgUrl.value = currentImg;
-                        modalFileInput.value = '';
-                    } else {
-                        modalImageSection.style.display = 'none';
-                    }
+                    // Siempre mostrar la sección de imagen (para que pueda subir fotos)
+                    modalImageSection.style.display = 'block';
+                    modalImgPreview.src = currentImg || 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect width=%22200%22 height=%22200%22 fill=%22%231a1a24%22/%3E%3Ctext x=%2250%22 y=%22110%22 font-family=%22Arial%22 font-size=%2220%22 fill=%22%23666%22%3ESin imagen%3C/text%3E%3C/svg%3E';
+                    modalImgUrl.value = currentImg;
+                    modalFileInput.value = '';
 
                     modalText1.value = currentText1;
                     modalText2.value = currentText2;
+
                     modalTitle.innerText = 'Editar: ' + key;
                     modalOverlay.classList.add('active');
                 });
             }
 
+            // ----- Cerrar modal -----
             function closeModal() {
                 modalOverlay.classList.remove('active');
                 currentEditKey = null;
@@ -1637,10 +1371,10 @@
                 modalFileInput.value = '';
             }
 
-            // ----- Botón Cloudinary -----
+            // ----- Botón de Cloudinary -----
             uploadCloudinaryBtn.addEventListener('click', function() {
                 if (!CONFIG.CLOUD_NAME || !CONFIG.UPLOAD_PRESET) {
-                    alert('Falta configurar CLOUD_NAME o UPLOAD_PRESET.');
+                    alert('Falta configurar CLOUD_NAME o UPLOAD_PRESET en el código.');
                     return;
                 }
                 const widget = cloudinary.createUploadWidget({
@@ -1650,6 +1384,7 @@
                     cropping: false
                 }, function(error, result) {
                     if (error) {
+                        console.error(error);
                         alert('Error al subir imagen.');
                         return;
                     }
@@ -1662,14 +1397,13 @@
                 widget.open();
             });
 
-            // ---- Toggle edición con contraseña ----
+            // --- Activar/desactivar modo edición ---
             editToggleBtn.addEventListener('click', function() {
                 if (isEditMode) {
                     document.body.classList.remove('edit-mode');
                     editToggleBtn.classList.remove('active');
                     isEditMode = false;
                     editToggleBtn.innerHTML = '<i class="fa-solid fa-pen"></i>';
-                    editToggleBtn.title = 'Editar (contraseña: 1234)';
                 } else {
                     const pass = prompt('Introduce la contraseña:');
                     if (pass === CONFIG.PASSWORD) {
@@ -1677,14 +1411,13 @@
                         editToggleBtn.classList.add('active');
                         isEditMode = true;
                         editToggleBtn.innerHTML = '<i class="fa-solid fa-check"></i>';
-                        editToggleBtn.title = 'Desactivar edición';
                     } else if (pass !== null) {
                         alert('Contraseña incorrecta.');
                     }
                 }
             });
 
-            // ---- Eventos de lápices ----
+            // --- Delegación de eventos para lápices ---
             document.addEventListener('click', function(e) {
                 const btn = e.target.closest('.edit-btn-overlay');
                 if (!btn) return;
@@ -1701,15 +1434,16 @@
                 openModal(key, type, imgTarget, textTarget, textTarget2);
             });
 
-            // ---- Botones modal ----
+            // --- Botones del modal ---
             modalCloseBtn.addEventListener('click', closeModal);
             modalCancelBtn.addEventListener('click', closeModal);
             modalSaveBtn.addEventListener('click', saveCurrentEdit);
+
             modalOverlay.addEventListener('click', function(e) {
                 if (e.target === this) closeModal();
             });
 
-            // Subida local (solo por si acaso)
+            // Subir archivo local (opcional)
             modalFileInput.addEventListener('change', function(e) {
                 const file = e.target.files[0];
                 if (!file) return;
@@ -1722,8 +1456,9 @@
                 reader.readAsDataURL(file);
             });
 
+            // Previsualizar URL
             modalImgUrl.addEventListener('input', function() {
-                modalImgPreview.src = this.value || 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect width=%22200%22 height=%22200%22 fill=%22%231a1a24%22/%3E%3Ctext x=%2250%22 y=%22110%22 font-family=%22Syne%22 font-size=%2220%22 fill=%22%23666%22%3ESin imagen%3C/text%3E%3C/svg%3E';
+                modalImgPreview.src = this.value || 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect width=%22200%22 height=%22200%22 fill=%22%231a1a24%22/%3E%3Ctext x=%2250%22 y=%22110%22 font-family=%22Arial%22 font-size=%2220%22 fill=%22%23666%22%3ESin imagen%3C/text%3E%3C/svg%3E';
             });
 
         })();
